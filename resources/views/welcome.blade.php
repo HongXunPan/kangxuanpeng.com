@@ -19,17 +19,6 @@
             font-weight: 100;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
         }
 
         .full-height {
@@ -54,44 +43,92 @@
 
         .content {
             text-align: center;
-            position: absolute;
-
-            /*width: 320px;*/
-            margin: -160px 0 0 0;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+            margin-top: -15vh;
         }
 
         .title {
-            font-size: 84px;
-            letter-spacing: 10px;
+            font-size: 50px;
             color: black;
+            letter-spacing: .15rem;
         }
 
         .links > a {
             color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
+            padding: 0 .5em;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: .1rem;
             text-decoration: none;
-            /*text-transform: uppercase;*/
+            text-transform: uppercase;
         }
 
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
     </style>
+    <style type="text/css">object, embed {
+            -webkit-animation-duration: .001s;
+            -webkit-animation-name: playerInserted;
+            -ms-animation-duration: .001s;
+            -ms-animation-name: playerInserted;
+            -o-animation-duration: .001s;
+            -o-animation-name: playerInserted;
+            animation-duration: .001s;
+            animation-name: playerInserted;
+        }
+
+        @-webkit-keyframes playerInserted {
+            from {
+                opacity: 0.99;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-ms-keyframes playerInserted {
+            from {
+                opacity: 0.99;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes playerInserted {
+            from {
+                opacity: 0.99;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes playerInserted {
+            from {
+                opacity: 0.99;
+            }
+            to {
+                opacity: 1;
+            }
+        }</style>
 </head>
 <body>
 <canvas width="3000" height="872"></canvas>
 <div class="flex-center position-ref full-height">
 
     <div class="content">
-        <div class="title m-b-md">
-            HongXunPan
-        </div>
+        <div class="title m-b-md">HongXunPan</div>
 
         <div class="links">
             <a href="#">xxx</a>
