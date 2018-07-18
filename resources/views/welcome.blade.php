@@ -54,7 +54,7 @@
 
         .links > a {
             color: #636b6f;
-            padding: 0 .5em;
+            margin: 0 .5em;
             font-size: 14px;
             font-weight: 600;
             letter-spacing: .1rem;
@@ -75,6 +75,40 @@
             height: 100%;
             pointer-events: none;
         }
+
+        /*a 标签hover 增加 decoration样式*/
+
+        a {
+            position: relative;
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        a:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #ff6358;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+            top: 1.2em;
+        }
+        a:hover:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+
     </style>
     <style type="text/css">object, embed {
             -webkit-animation-duration: .001s;
@@ -128,8 +162,7 @@
 <div class="flex-center position-ref full-height">
 
     <div class="content">
-        <div class="title m-b-md">HongXunPan</div>
-
+        <div class="title m-b-md"><a onclick="">HongXunPan</a></div>
         <div class="links">
             <a href="#">xxx</a>
             <a href="http://blog.kangxuanpeng.com">Blog</a>
