@@ -15,10 +15,18 @@
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Raleway', sans-serif;
+            /*font-family: 'Raleway', sans-serif;*/
             font-weight: 100;
             height: 100vh;
             margin: 0;
+            font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            /*margin: 0 auto;*/
+            /*color: #313131;*/
+            text-rendering: geometricPrecision;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
         }
 
         .full-height {
@@ -103,6 +111,7 @@
             transition: all 0.3s ease-in-out 0s;
             top: 1.2em;
         }
+
         a:hover:before {
             visibility: visible;
             -webkit-transform: scaleX(1);
@@ -159,7 +168,7 @@
 </head>
 <body>
 <canvas width="3000" height="872"></canvas>
-<div class="flex-center position-ref full-height">
+<div id="page" class="flex-center position-ref full-height">
 
     <div class="content">
         <div class="title m-b-md"><a onclick="">HongXunPan</a></div>
@@ -224,5 +233,4 @@
     document.ontouchstart = i
     i()
 </script>
-
 </html>
