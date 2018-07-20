@@ -84,3 +84,14 @@
  - 
  or u can leave a message on this form
  
+ ## 安装步骤
+ 
+ - copy 代码
+ 
+ ```git clone https://github.com/HongXunPan/kangxuanpeng.com.git```
+ 
+ - 安装依赖
+ 
+ ```composer update```
+ 
+ - 配置文件 .env 放到根目录
