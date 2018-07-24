@@ -96,12 +96,9 @@
  
  - 配置文件 .env 放到根目录
  
- ### [MyBlog](http://blog.kangxuanpeng.com)
+ ## [MyBlog](http://blog.kangxuanpeng.com)
  
  模板来自于[linpx.cn](https://www.linpx.com/),基于typecho的 Pinghsu 皮肤，作者是 Chakhsu
- 
- ###
- 
  
  ### database数据库设计
   
