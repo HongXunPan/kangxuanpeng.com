@@ -95,3 +95,58 @@
  ```composer update```
  
  - 配置文件 .env 放到根目录
+ 
+ ### [MyBlog](http://blog.kangxuanpeng.com)
+ 
+ 模板来自于[linpx.cn](https://www.linpx.com/),基于typecho的 Pinghsu 皮肤，作者是 Chakhsu
+ 
+ ###
+ 
+ 
+ ### database数据库设计
+  
+ ##### table:posts 文章表
+ 
+ | column | type | attribute | comment |
+ | --- | --- | ---| --- |
+ | post_id | int(11) | PK auto increase | 文章ID |
+ | post_name | varchar(200) | default '' | 文章标题 |
+ | slug | varchar(100) | unique default '' | [将文章标题转化为URL的一部分，以利于SEO](https://laravel-china.org/topics/2857/write-a-url-slug-wheel-to-support-chinese-translation) |
+ | content | text |  | 文章内容，存放md格式 |
+ | author_id | int(11) | default 0 | 作者id |
+ | comment_num | int(11) | default 0 | 评论数(冗余字段) |
+ | created_at | int(11) | default 0 | 创建时间 |
+ | updated_at | int(11) | default 0 | 修改时间 |
+ | status | tinyint(1) | default 0 | 草稿or已发布 |
+ | | | | |
+ 
+ ##### table:comments 评论表
+ 
+ | column | type | attribute | comment |
+ | --- | --- | ---| --- |
+ | comment_id | int(11) | PK auto increase | 评论ID |
+ | post_id | int(11) | default 0 | 文章ID |
+ | content | text | | 评论内容 |
+ | parent_id | int(11) | default 0 | 父评论id |
+ | nick_name | varchar(30) | default '' | 评论者昵称 |
+ | email | varchar(50) | default '' | 评论者邮箱 |
+ | site | varchar(50) | default '' | 评论者网站 |
+ | created_at | int(11) | default 0 | 评论时间|
+ | status | tinyint(1) | default 0 | 状态 删除or正常 |
+ | | | | |
+ 
+ ##### table:tags 分类表
+ 
+ | column | type | attribute | comment |
+ | --- | --- | ---| --- |
+ | tag_id | int(5) | PK auto increase | 标签ID |
+ | tag_name | varchar(50) | default '' | 标签名称 |
+ | | | | |
+ 
+ ##### table:post_tag_relations 文章分类的关系表
+ 
+ | column | type | attribute | comment |
+ | --- | --- | ---| --- |
+ | post_id | int(11) | PK1 | 文章ID |
+ | tag_id | int(5) | PK1 | 标签ID |
+ | | | | |
