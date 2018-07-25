@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['domain' => 'www.kangxuanpeng.com'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
