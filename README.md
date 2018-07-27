@@ -96,6 +96,11 @@
  
  - 配置文件 .env 放到根目录
  
+ - 执行迁移文件
+ ```php artisan migration```
+ 
+ ```php artisan migration --path=database/migrations/blog```
+ 
  ## [MyBlog](http://blog.kangxuanpeng.com)
  
  模板来自于[linpx.cn](https://www.linpx.com/),基于typecho的 Pinghsu 皮肤，作者是 Chakhsu
