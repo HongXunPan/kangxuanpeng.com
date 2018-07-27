@@ -97,6 +97,7 @@
  - 配置文件 .env 放到根目录
  
  - 执行迁移文件
+ 
  ```php artisan migration```
  
  ```php artisan migration --path=database/migrations/blog```
