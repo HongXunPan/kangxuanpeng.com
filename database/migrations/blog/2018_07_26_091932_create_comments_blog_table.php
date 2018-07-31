@@ -22,7 +22,8 @@ class CreateCommentsBlogTable extends Migration
             $table->string('email', 50)->default('')->comment('评论者email');
             $table->string('site', 50)->default('')->comment('评论者url');
             $table->tinyInteger('status', false, true)->default(0)->comment('状态 软删除');
-            $table->timestamps();
+            $table->integer('created_at')->unsigned()->default(0);
+            $table->integer('updated_at')->unsigned()->default(0);
 
             $table->index('post_id');
             $table->index('parent_id');

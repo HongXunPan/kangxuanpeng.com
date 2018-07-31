@@ -21,7 +21,8 @@ class CreatePostsBlogTable extends Migration
             $table->integer('author_id', false, true)->default(0)->comment('作者ID');
             $table->integer('comment_num', false, true)->default(0)->comment('评论数 (冗余)');
             $table->tinyInteger('status', false, true)->default(0)->comment('状态 发布or草稿');
-            $table->nullableTimestamps();
+            $table->integer('created_at')->unsigned()->default(0);
+            $table->integer('updated_at')->unsigned()->default(0);
 
             $table->index('post_name');
             $table->index('slug');
