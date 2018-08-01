@@ -23,6 +23,8 @@ class TagBlog extends Model
 
     protected $table = 'tags_blog';
 
+    public $timestamps = false;
+
     public function posts()
     {
         return $this->belongsToMany('App\PostBlog', 'post_tag_relations_blog', 'tag_id', 'post_id');
