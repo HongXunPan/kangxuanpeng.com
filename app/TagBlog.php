@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\TagBlog
+ *
+ * @property int $tag_id 标签ID
+ * @property string $tag_name 标签名称
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PostBlog[] $posts
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\TagBlog whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\TagBlog whereTagName($value)
+ * @mixin \Eloquent
+ */
 class TagBlog extends Model
 {
 

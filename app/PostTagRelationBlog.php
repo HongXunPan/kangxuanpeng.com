@@ -4,6 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\PostTagRelationBlog
+ *
+ * @property int $post_id 文章ID
+ * @property int $tag_id 标签ID
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PostTagRelationBlog wherePostId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PostTagRelationBlog whereTagId($value)
+ * @mixin \Eloquent
+ */
 class PostTagRelationBlog extends Model
 {
 
