@@ -153,3 +153,17 @@
  | post_id | int(11) | PK1 | 文章ID |
  | tag_id | int(5) | PK1 | 标签ID |
  | | | | |
+
+## use package
+
+ - barryvdh/laravel-ide-helper ide_code_tips
+ - doctrine/dbal add_model_doc
+ - nwidart/laravel-modules create_multi_module
+ 
+ wait-use
+ - hieu-le/active nav_active_style
+ - frozennode/administrator backend_view_create
+ - jellybool/translug post_title_trans_slug
+ 
+ 
+ //替换分页默认模板
