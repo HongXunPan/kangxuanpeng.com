@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    @include('blog::common.head')
+    <title>Blog - HongXunPan</title>
+    <meta name="keywords" content="HongXunPan Blog">
+    <meta name="description" content="Archives">
+</head>
+<body class="bg-grey" gtools_scp_screen_capture_injected="true">
+@include('blog::common.ie8')
+@include('blog::common.header')
+<div class="main-content archive-page clearfix">
+    <!--post list-->
+    <div class="categorys-item">
+        <!--foreach-->
+        @if(!count($postList))
+            <div class="categorys-title">
+                Blog of HongXunPan
+            </div>
+            <div class="post-lists">
+                <div class="post-lists-body">
+                    <div class="post-list-item">
+                        Nothing to show, coming soon
+                    </div>
+                </div>
+            </div>
+        @endif
+        @foreach($postList as $month => $posts)
+        <!--title-->
+            <div class="categorys-title">
+                {{ $month }}
+            </div>
+            <div class="post-lists">
+                <div class="post-lists-body">
+                @foreach($posts as $post)
+                    <!--post-->
+                        <div class="post-list-item">
+                            <div class="post-list-item-container">
+                                <div class="item-label">
+                                    <div class="item-title">
+                                        <a href="{{ URL::route('post') }}">
+                                            {{ $post->post_name }}
+                                        </a>
+                                    </div>
+                                    <div class="item-meta clearfix">
+                                        <div class="item-meta-date">
+                                            {{ $post->created_at->format('M j, Y H:i') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        @endforeach
+
+    </div>
+</div>
+@include('blog::common.footer')
+@include('blog::common.script')
+</body>
+</html>

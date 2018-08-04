@@ -2,6 +2,7 @@
 
 namespace Modules\Blog\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -26,6 +27,8 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        //use pagination-view
+        Paginator::defaultView('blog::vendor.pagination.default');
     }
 
     /**

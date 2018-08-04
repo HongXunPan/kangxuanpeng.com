@@ -25,6 +25,8 @@ class TagBlog extends Model
 
     public $timestamps = false;
 
+    public $postNum;
+
     public function posts()
     {
         return $this->belongsToMany('App\PostBlog', 'post_tag_relations_blog', 'tag_id', 'post_id');

@@ -40,6 +40,14 @@ class PostBlog extends Model
 
     protected $guarded = [];
 
+    const STATUS_EDITING = 0;
+    const STATUS_PUBLISHED = 1;
+
+    public $status_map = [
+        self::STATUS_EDITING => '草稿',
+        self::STATUS_PUBLISHED => '已发布',
+    ];
+
     public function comments()
     {
         return $this->hasMany('App\CommentBlog', 'post_id');

@@ -52,4 +52,30 @@
         }
         // delete MathJax whole file
     });
-    InstantClick.init('mousedown'); </script>
+    InstantClick.init('mousedown');
+</script>
+{{--title script--}}
+<script>
+    var OriginTitile = document.title,
+        titleTime;
+    document.addEventListener("visibilitychange",
+        function () {
+            if (document.hidden) {
+                document.title = "哼 讨厌 你怎么走了吖 o_O！";
+                clearTimeout(titleTime)
+            } else {
+                document.title = "呀呀呀 回来了！" + OriginTitile;
+                titleTime = setTimeout(function () {
+                        document.title = OriginTitile
+                    },
+                    2000)
+            }
+        });
+</script>
+{{--<script>--}}
+    {{--var total = 15, html, currPage = 1, perPage = 15;--}}
+    {{--for (total)--}}
+    {{--html = '  <li><a href="#">2</a></li>';--}}
+    {{--var div = document.getElementById('pagination');--}}
+    {{--div.innerHTML = html;--}}
+{{--</script>--}}

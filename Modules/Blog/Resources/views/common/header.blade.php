@@ -8,7 +8,7 @@
             <a href="#">Links</a>
             <a href="#">About</a>
         </div>
-        <a href="./search.html" class="navbar-search"> <span class="icon-search"></span> </a>
+        <a href="{{ url('search') }}" class="navbar-search"> <span class="icon-search"></span> </a>
         <div class="navbar-mobile-menu" onclick="">
             <span class="icon-menu cross"><span class="middle"></span></span>
             <ul>

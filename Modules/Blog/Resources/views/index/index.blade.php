@@ -1,205 +1,63 @@
-<!doctype html>
-<html>
-<head>
-    @include('blog::common.head')
+@extends('blog::layouts.blog')
+
+@section('htmlHead')
     <title>Blog - HongXunPan</title>
     <meta name="keywords" content="HongXunPan Blog">
     <meta name="description" content="Archives">
-</head>
-<body class="bg-grey" gtools_scp_screen_capture_injected="true">
-@include('blog::common.ie8')
-@include('blog::common.header')
-<div class="main-content archive-page clearfix">
-    <!--post list-->
-    <div class="categorys-item">
-        <!--foreach-->
-        <!--title-->
-        <div class="categorys-title">
-            Apr 2018
-        </div>
-        <!--post-->
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <!--laravel content to link-->
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@endsection
 
-            </div>
-        </div>
-        <div class="categorys-title">
-            Apr 2018
-        </div>
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--@section('nav')--}}
+    {{--@include('blog::common.header')--}}
+{{--@endsection--}}
 
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
+@section('mainBody')
+    <div class="main-content archive-page clearfix">
+        <!--post list-->
+        <div class="categorys-item">
+            <!--foreach-->
+            @if(!count($postList))
+                <div class="categorys-title">
+                    Blog of HongXunPan
+                </div>
+                <div class="post-lists">
+                    <div class="post-lists-body">
+                        <div class="post-list-item">
+                            Nothing to show, coming soon
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="categorys-title">
-            Apr 2018
-        </div>
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
+            @endif
+            @foreach($postList as $month => $posts)
+            <!--title-->
+                <div class="categorys-title">
+                    {{ $month }}
+                </div>
+                <div class="post-lists">
+                    <div class="post-lists-body">
+                    @foreach($posts as $post)
+                        <!--post-->
+                            <div class="post-list-item">
+                                <div class="post-list-item-container">
+                                    <div class="item-label">
+                                        <div class="item-title">
+                                            <a href="{{ URL::route('post') }}">
+                                                {{ $post->post_name }}
+                                            </a>
+                                        </div>
+                                        <div class="item-meta clearfix">
+                                            <div class="item-meta-date">
+                                                {{ $post->created_at->format('M j, Y H:i') }}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="categorys-title">
-            Apr 2018
-        </div>
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title">
-                                <a href="https://www.linpx.com/p/the-core-concept-of-tensorflowjs.html">TensorFlow.js
-                                    的核心概念</a>
-                            </div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date">
-                                    Apr 1, 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        @endforeach
 
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
     </div>
-</div>
-@include('blog::common.footer')
-@include('blog::common.script')
-</body>
-</html>
+@endsection

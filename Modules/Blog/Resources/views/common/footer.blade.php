@@ -17,7 +17,7 @@
             <div class="meta-item meta-copyright">
                 <div class="meta-copyright-info">
                     <!--long logo-->
-                    <a href="https://www.linpx.com/" class="info-logo"> <img src="images/logo-hsuping.png" alt="LiNPX">
+                    <a href="https://www.linpx.com/" class="info-logo"> <img src="images/logo-hsuping.png" alt="HongXunPan">
                     </a>
                     <div class="info-text">
                         <p id="btm-animation"></p>
