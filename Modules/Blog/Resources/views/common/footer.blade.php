@@ -3,7 +3,7 @@
         <div class="footer-container clearfix">
             <div class="social-list">
                 <a class="social github" target="blank" href="https://github.com/HongXunPan">GITHUB</a>
-                <a class="social weibo" target="blank" href="#">JIANSHU</a>
+                <a class="social weibo" target="blank" href="https://www.jianshu.com/u/3f7f9f782c2e">JIANSHU</a>
                 <a class="social zhihu" target="blank" href="#">ZHIHU</a>
                 <!--RSS-->
                 <a class="social rss" target="blank" href="#">RSS</a>

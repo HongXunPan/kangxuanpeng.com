@@ -49,6 +49,6 @@ class IndexController extends Controller
             $tags[] = $tag;
         }
         array_multisort($counts, SORT_DESC, SORT_NUMERIC, $tags);
-        return view('blog::index.searchPage', ['tagList' => []]);
+        return view('blog::index.searchPage', ['tagList' => $tags]);
     }
 }
