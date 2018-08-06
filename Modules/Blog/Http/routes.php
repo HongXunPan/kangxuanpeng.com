@@ -11,5 +11,7 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
     Route::get('search', 'IndexController@searchPage');
     Route::get('search/{$keyword}', 'IndexController@search');
 
-    Route::get('post/{id}', 'IndexController@postById');
+    Route::get('post/{id}', 'IndexController@postByIdSlug')->where('id', '[0-9]+');
+    Route::get('post/{id}/{slug}', 'indexController@postByIdSlug')->where(['id' => '[0-9]+']);
+    Route::get('post/{slug}', 'indexController@postBySlug');
 });

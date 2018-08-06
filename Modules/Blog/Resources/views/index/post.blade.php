@@ -2,8 +2,8 @@
 
 @section('htmlHead')
     <title> {{ $post->post_name }} - HongXunPan</title>
-    <meta name="keywords" content="博客,日志">
-    <meta name="description" content="MAIN CONTENT balalalala ...">
+    <meta name="keywords" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }}">
+    <meta name="description" content="{{ $post->post_name }}">
 @endsection
 
 @section('nav')
@@ -42,7 +42,8 @@
 
     {{--bottom Bar--}}
     @include('blog::post.bottomBar')
-    {{--comment List--}}
+
+    {{--//TODO comment List--}}
 
     <div id="directory-content" class="directory-content">
         <div id="directory"></div>
