@@ -1,7 +1,7 @@
 @extends('blog::layouts.blog')
 
 @section('htmlHead')
-    <title> {{ $post->post_name }} - LiNPX</title>
+    <title> {{ $post->post_name }} - HongXunPan</title>
     <meta name="keywords" content="博客,日志">
     <meta name="description" content="MAIN CONTENT balalalala ...">
 @endsection
@@ -30,13 +30,13 @@
                 @endforeach
             </p>
             {{--post content--}}
-            {{ $post->content }}
+            {!! $md->makeHtml($post->content) !!}
             <!--personal sign-->
-            <p class="post-info"> 本文由 <a href="#">Chakhsu Lau</a> 创作，采用 <a
+            <p class="post-info"> 本文由 <a href="{{ url('/') }}">HongXunPan</a> 创作，采用 <a
                         href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-                        rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为:
-                Apr 13,
-                2017 at 09:23 pm </p>
+                        rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+                最后编辑时间为:
+                {{ $post->updated_at->format('Y-m-d H:i:s') }} </p>
         </div>
     </article>
 

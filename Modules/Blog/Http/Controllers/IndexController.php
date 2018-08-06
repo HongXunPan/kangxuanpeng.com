@@ -12,6 +12,7 @@ namespace Modules\Blog\Http\Controllers;
 use App\PostBlog;
 use App\TagBlog;
 use Carbon\Carbon;
+use HyperDown\Parser;
 use Illuminate\Routing\Controller;
 
 class IndexController extends Controller
@@ -19,7 +20,7 @@ class IndexController extends Controller
     public function index()
     {
         $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->orderby('created_at', SORT_DESC)->get();
-        /** @var  $post PostBlog*/
+        /** @var  $post PostBlog */
         $posts = [];
         foreach ($postList as $post) {
             $month = Carbon::parse($post->created_at)->format('M Y');
@@ -42,7 +43,7 @@ class IndexController extends Controller
         $tagList = TagBlog::all();
         $counts = [];
         $tags = [];
-        /** @var  $tag TagBlog*/
+        /** @var  $tag TagBlog */
         foreach ($tagList as $tag) {
             $count = $tag->posts->count();
             $counts[] = $tag->postNum = $count;
@@ -56,6 +57,8 @@ class IndexController extends Controller
     {
         $post = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->find($id);
 //        $post = [];
-        return view('blog::index.post', ['post' => $post]);
+        $md = new Parser();
+        $md->_commonWhiteList .= '|center';
+        return view('blog::index.post', ['post' => $post, 'md' => $md]);
     }
 }

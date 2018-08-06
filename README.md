@@ -159,6 +159,7 @@
  - barryvdh/laravel-ide-helper ide_code_tips
  - doctrine/dbal add_model_doc
  - nwidart/laravel-modules create_multi_module
+ - joyqi/hyper-down tran markdown to html
  
  wait-use
  - hieu-le/active nav_active_style
