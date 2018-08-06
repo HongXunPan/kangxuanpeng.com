@@ -17,7 +17,7 @@
             <div class="meta-item meta-copyright">
                 <div class="meta-copyright-info">
                     <!--long logo-->
-                    <a href="https://www.linpx.com/" class="info-logo"> <img src="images/logo-hsuping.png" alt="HongXunPan">
+                    <a href="https://www.linpx.com/" class="info-logo"> <img src="images/logo-HongXunPan.png" alt="HongXunPan">
                     </a>
                     <div class="info-text">
                         <p id="btm-animation"></p>
@@ -28,18 +28,18 @@
                     </div>
                 </div>
             </div>
-            <div class="meta-item meta-posts">
-                <h3 class="meta-title">RECENT POSTS</h3>
-                <!--limit 8-->
-                <li><a href="#">POST TITLE</a></li>
-            </div>
-            <div class="meta-item meta-comments">
-                <h3 class="meta-title">RECENT COMMENTS</h3>
-                <!--limit 8-->
-                <li>
-                    <a href="https://www.linpx.com/p/two-installation-methods-of-elasticsearch.html/comment-page-1#comment-2554">bill
-                        : 按照标准 markdown 的方式的时候，三...</a></li>
-            </div>
+            {{--<div class="meta-item meta-posts">--}}
+                {{--<h3 class="meta-title">RECENT POSTS</h3>--}}
+                {{--<!--limit 8-->--}}
+                {{--<li><a href="#">POST TITLE</a></li>--}}
+            {{--</div>--}}
+            {{--<div class="meta-item meta-comments">--}}
+                {{--<h3 class="meta-title">RECENT COMMENTS</h3>--}}
+                {{--<!--limit 8-->--}}
+                {{--<li>--}}
+                    {{--<a href="https://www.linpx.com/p/two-installation-methods-of-elasticsearch.html/comment-page-1#comment-2554">bill--}}
+                        {{--: 按照标准 markdown 的方式的时候，三...</a></li>--}}
+            {{--</div>--}}
         </div>
     </div>
 </footer>
