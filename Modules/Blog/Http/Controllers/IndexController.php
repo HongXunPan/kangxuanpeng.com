@@ -51,4 +51,11 @@ class IndexController extends Controller
         array_multisort($counts, SORT_DESC, SORT_NUMERIC, $tags);
         return view('blog::index.searchPage', ['tagList' => $tags]);
     }
+
+    public function postById($id = 1)
+    {
+        $post = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->find($id);
+//        $post = [];
+        return view('blog::index.post', ['post' => $post]);
+    }
 }

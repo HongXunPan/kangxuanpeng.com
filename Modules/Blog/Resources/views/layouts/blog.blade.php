@@ -18,6 +18,9 @@
 
 @yield('mainBody')
 @include('blog::common.footer')
-@include('blog::common.script')
+
+@section('script')
+    @include('blog::common.script')
+@show
 </body>
 </html>

@@ -72,10 +72,3 @@
             }
         });
 </script>
-{{--<script>--}}
-    {{--var total = 15, html, currPage = 1, perPage = 15;--}}
-    {{--for (total)--}}
-    {{--html = '  <li><a href="#">2</a></li>';--}}
-    {{--var div = document.getElementById('pagination');--}}
-    {{--div.innerHTML = html;--}}
-{{--</script>--}}

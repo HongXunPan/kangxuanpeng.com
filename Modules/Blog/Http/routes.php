@@ -5,11 +5,11 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
     Route::get('/', 'BlogController@index');
     Route::get('index/', 'IndexController@index');
 
-    Route::get('post', ['as' => 'post', 'uses' => 'PostController@index']);
-
     Route::get('tag/{tag_name}', 'IndexController@tagList');
-    Route::get('tag/{tag_name}/{id}', 'IndexController@tagList');
+    Route::get('tag/{tag_name}/{page}', 'IndexController@tagList');
 
     Route::get('search', 'IndexController@searchPage');
     Route::get('search/{$keyword}', 'IndexController@search');
+
+    Route::get('post/{id}', 'IndexController@postById');
 });
