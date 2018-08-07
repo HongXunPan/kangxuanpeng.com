@@ -168,3 +168,7 @@
  
  
  //替换分页默认模板
+ {!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}
+
+ //后台页面快速
+ //TODO logo&icon
