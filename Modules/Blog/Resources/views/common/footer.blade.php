@@ -4,11 +4,11 @@
             <div class="social-list">
                 <a class="social github" target="blank" href="https://github.com/HongXunPan">GITHUB</a>
                 <a class="social weibo" target="blank" href="https://www.jianshu.com/u/3f7f9f782c2e">JIANSHU</a>
-                <a class="social zhihu" target="blank" href="#">ZHIHU</a>
+                {{--<a class="social zhihu" target="blank" href="#">ZHIHU</a>--}}
                 <!--RSS-->
-                <a class="social rss" target="blank" href="#">RSS</a>
-                <a class="social twitter" target="blank" href="#">TWITTER</a>
-                <a class="social twitter" target="blank" href="#">INS</a>
+                {{--<a class="social rss" target="blank" href="#">RSS</a>--}}
+                {{--<a class="social twitter" target="blank" href="#">TWITTER</a>--}}
+                <a class="social twitter" target="blank" href="https://www.instagram.com/hong_xunpan/">INS</a>
             </div>
         </div>
     </div>
@@ -17,14 +17,14 @@
             <div class="meta-item meta-copyright">
                 <div class="meta-copyright-info">
                     <!--long logo-->
-                    <a href="https://www.linpx.com/" class="info-logo"> <img src="images/logo-HongXunPan.png" alt="HongXunPan">
+                    <a href="{{ url('/') }}" class="info-logo"> <img src="images/logo-HongXunPan.png" alt="HongXunPan">
                     </a>
                     <div class="info-text">
                         <p id="btm-animation"></p>
                         <p>Base on <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a
                                     href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
                         {{--<p>Powered by <a href="http://www.typecho.org" target="_blank" rel="nofollow">Typecho</a></p>--}}
-                        <p>© 2018 <a href="#">HongXunPan</a></p>
+                        <p>© 2018 <a href="{{ url('/') }}">HongXunPan</a></p>
                     </div>
                 </div>
             </div>

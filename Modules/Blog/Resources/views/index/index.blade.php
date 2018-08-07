@@ -2,8 +2,8 @@
 
 @section('htmlHead')
     <title>Blog - HongXunPan</title>
-    <meta name="keywords" content="HongXunPan Blog">
-    <meta name="description" content="Archives">
+    <meta name="keywords" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,website">
+    <meta name="description" content="Index">
 @endsection
 
 {{--@section('nav')--}}

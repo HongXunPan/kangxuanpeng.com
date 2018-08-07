@@ -2,7 +2,7 @@
 
 @section('htmlHead')
     <title>Search Page - HongXunPan</title>
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Search,康宣鹏,HongXunPan,kangxuanpeng,">
     <meta name="description" content="👇 The following tabs can help you!">
 @endsection
 
