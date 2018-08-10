@@ -12,4 +12,5 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('posts', 'PostBlogController');
+    $router->resource('tags', 'TagBlogController');
 });

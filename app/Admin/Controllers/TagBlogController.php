@@ -2,9 +2,8 @@
 
 namespace App\Admin\Controllers;
 
-use App\PostBlog;
+use App\TagBlog;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -12,7 +11,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class PostBlogController extends Controller
+class TagBlogController extends Controller
 {
     use ModelForm;
 
@@ -25,8 +24,8 @@ class PostBlogController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Post');
-//            $content->description('description');
+            $content->header('Index');
+            $content->description('description');
 
             $content->body($this->grid());
         });
@@ -45,12 +44,11 @@ class PostBlogController extends Controller
             $content->header('Detail');
             $content->description('description');
 
-            $content->body(Admin::show(PostBlog::findOrFail($id), function (Show $show) {
+            $content->body(Admin::show(TagBlog::findOrFail($id), function (Show $show) {
 
-                $show->id();
+                $show->tag_id();
+                $show->tag_name();
 
-                $show->created_at();
-                $show->updated_at();
             }));
         });
     }
@@ -95,25 +93,11 @@ class PostBlogController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(PostBlog::class, function (Grid $grid) {
-            /** @var $grid PostBlog*/
+        return Admin::grid(TagBlog::class, function (Grid $grid) {
 
-            $grid->post_id('ID')->sortable();
-            $grid->post_name();
-            $grid->slug();
-            $grid->content();
-            $grid->comment_num('评论')->sortable()
-                ->setAttributes(['style' => 'min-width:45px;text-align:center;']);
-            $grid->status('状态')->display(function ($status) {
-                return PostBlog::$status_map[$status];
-            })->setAttributes(['style' => 'width:60px;text-align:center;']);
-            $grid->created_at()->display(function ($time) {
-                return date('Y-m-d H:i:s', $time);
-            })->setAttributes(['class' => 'created_at']);
-            $grid->updated_at()->display(function ($time) {
-                return date('Y-m-d H:i:s', $time);
-            })->setAttributes(['class' => 'updated_at']);
-        })->setTitle('Post List');
+            $grid->tag_id('ID')->sortable();
+            $grid->tag_name();
+        });
     }
 
     /**
@@ -123,14 +107,11 @@ class PostBlogController extends Controller
      */
     protected function form()
     {
-        return Admin::form(PostBlog::class, function (Form $form) {
+        return Admin::form(TagBlog::class, function (Form $form) {
 
-            $form->id('post_id', 'ID');
-            $form->text('post_name');
-            $form->text('slug');
-            $form->textarea('content');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('tag_id', 'ID');
+            $form->text('tag_name');
+
         });
     }
 }

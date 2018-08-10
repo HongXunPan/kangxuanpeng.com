@@ -3,3 +3,11 @@ table tr td:last-child{
     width: 65px;
     text-align: center;
 }
+
+.created_at {
+    width: 90px !important;
+}
+
+.updated_at {
+    width: 90px !important;
+}
