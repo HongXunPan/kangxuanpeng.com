@@ -19,3 +19,5 @@
  */
 
 Encore\Admin\Form::forget(['map', 'editor']);
+//引入自定义css补充
+Admin::css('css/admin/style.css');

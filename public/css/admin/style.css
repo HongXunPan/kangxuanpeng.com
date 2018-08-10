@@ -1,0 +1,5 @@
+/*表格最后一列 一般是action 设置宽度，非action列为最后一列需要!important;*/
+table tr td:last-child{
+    width: 65px;
+    text-align: center;
+}

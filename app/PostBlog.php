@@ -43,7 +43,7 @@ class PostBlog extends Model
     const STATUS_EDITING = 0;
     const STATUS_PUBLISHED = 1;
 
-    public $status_map = [
+    public static $status_map = [
         self::STATUS_EDITING => '草稿',
         self::STATUS_PUBLISHED => '已发布',
     ];
