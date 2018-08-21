@@ -160,7 +160,8 @@
  - doctrine/dbal add_model_doc
  - nwidart/laravel-modules create_multi_module
  - joyqi/hyper-down tran markdown to html
- 
+ - encore/laravel-admin 
+ //php artisan admin:make UserController --model=App\\User 
  wait-use
  - hieu-le/active nav_active_style
  - frozennode/administrator backend_view_create
@@ -170,5 +171,8 @@
  //替换分页默认模板
  {!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}
 
- //后台页面快速
+
  //TODO logo&icon
+ 
+ //laravel-admin form 一对多 hasMany 可以实现
+ 多对多则会报错 hasMany field must be a HasMany or MorphMany relation
