@@ -4,7 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\PostBlog;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
+use App\TagBlog;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -47,10 +47,23 @@ class PostBlogController extends Controller
 
             $content->body(Admin::show(PostBlog::findOrFail($id), function (Show $show) {
 
-                $show->id();
-
+                $show->post_id();
+                $show->post_name();
+                $show->slug();
+                $show->all();
                 $show->created_at();
                 $show->updated_at();
+
+                $show->postTags('postTags', function ($postTags) {
+                    $postTags->resource('../../admin/post-tags');
+                    $postTags->id();
+                    $postTags->tag_id();
+                    $postTags->tag()->tag_name();
+
+                    $postTags->disablePagination();
+                    $postTags->disableExport();
+                    $postTags->disableCreateButton();
+                });
             }));
         });
     }
@@ -109,10 +122,17 @@ class PostBlogController extends Controller
             })->setAttributes(['style' => 'width:60px;text-align:center;']);
             $grid->created_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
-            })->setAttributes(['class' => 'created_at']);
+            })->setAttributes(['class' => 'created_at'])->sortable();
             $grid->updated_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
-            })->setAttributes(['class' => 'updated_at']);
+            })->setAttributes(['class' => 'updated_at'])->sortable();
+
+            $grid->filter(function ($filter) {
+                $filter->like('post_name');
+                $filter->like('slug');
+//                $filter->scope('status', PostBlog::$status_map[PostBlog::STATUS_PUBLISHED])->where('status', PostBlog::STATUS_PUBLISHED);
+                $filter->equal('status')->select(PostBlog::$status_map);
+            });
         })->setTitle('Post List');
     }
 
@@ -131,6 +151,10 @@ class PostBlogController extends Controller
             $form->textarea('content');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
+
+            $form->divider();
+            $form->multipleSelect('tags')->options(TagBlog::all()->pluck('tag_name', 'tag_id'));
+
         });
     }
 }
