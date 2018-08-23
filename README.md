@@ -179,3 +179,5 @@
  //so 多对多通过关系表来实现的，laravel ORM的关联为belongToMany ，laravel不支持这种写法，需要怎么解决
  可以通过多选框来实现
  - $form->multipleSelect('tags')->options(TagBlog::all()->pluck('tag_name', 'tag_id'));
+ 
+ - laravel edit markdown-live view
