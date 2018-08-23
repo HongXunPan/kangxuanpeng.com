@@ -58,4 +58,9 @@ class PostBlog extends Model
         //TODO 注意看第一个参数和第四个参数的对应关系。第三个参数应该为本Model的主键，第四个参数应该为第一个参数Model的主键。 顺序绝对不能反
         return $this->belongsToMany('App\TagBlog', 'post_tag_relations_blog', 'post_id', 'tag_id');
     }
+
+    public function postTags()
+    {
+        return $this->hasMany('App\PostTagRelationBlog', 'post_id', 'post_id');
+    }
 }

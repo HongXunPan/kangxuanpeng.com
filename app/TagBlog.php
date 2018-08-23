@@ -31,4 +31,9 @@ class TagBlog extends Model
     {
         return $this->belongsToMany('App\PostBlog', 'post_tag_relations_blog', 'tag_id', 'post_id');
     }
+
+    public function postTags()
+    {
+        return $this->hasMany('App\PostTagRelationBlog', 'tag_id', 'tag_id');
+    }
 }
