@@ -105,7 +105,7 @@ class TagBlogController extends Controller
         return Admin::grid(TagBlog::class, function (Grid $grid) {
 
             $grid->tag_id('ID')->sortable();
-            $grid->tag_name();
+            $grid->tag_name()->editable();
             $grid->posts('Post Num')->count();
             $grid->filter(function ($filter) {
                 $filter->like('tag_name');
