@@ -8,6 +8,8 @@
         <meta name="keywords" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,website">
         <meta name="description" content="Index">
     @show
+
+    @include('blog::common.ga-config')
 </head>
 <body class="bg-grey" gtools_scp_screen_capture_injected="true">
 @include('blog::common.ie8')
