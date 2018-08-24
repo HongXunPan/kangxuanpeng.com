@@ -17,7 +17,7 @@
             <div class="meta-item meta-copyright">
                 <div class="meta-copyright-info">
                     <!--long logo-->
-                    <a href="{{ url('/') }}" class="info-logo"> <img src="images/logo-HongXunPan.png" alt="HongXunPan">
+                    <a href="{{ url('/') }}" class="info-logo"> <img src="{{ asset('images/logo-HongXunPan.png') }}" alt="HongXunPan">
                     </a>
                     <div class="info-text">
                         <p id="btm-animation"></p>

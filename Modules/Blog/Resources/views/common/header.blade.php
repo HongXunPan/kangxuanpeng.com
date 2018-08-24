@@ -1,7 +1,7 @@
 <header id="header" class="header bg-white">
     <div class="navbar-container">
         <!--logo-->
-        <a href="{{ url('/') }}" class="navbar-logo"> <img src="images/logo.png" alt="HongXunPan"> </a>
+        <a href="{{ url('/') }}" class="navbar-logo"> <img src="{{ asset('images/logo.png') }}" alt="HongXunPan"> </a>
         <!--nav-->
         <div class="navbar-menu">
             <a class="current" href="{{ url('/') }}">Index</a>
