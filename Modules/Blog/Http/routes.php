@@ -4,7 +4,7 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
 {
 //    Route::get('/', 'BlogController@index');
     Route::get('/', 'IndexController@index');
-    Route::get('/index/', 'IndexController@index');
+    Route::redirect('/index', '/', 301);
 
     Route::get('/tag/{tag_name}', 'IndexController@tagList');
     Route::get('/tag/{tag_name}/{page}', 'IndexController@tagList');
