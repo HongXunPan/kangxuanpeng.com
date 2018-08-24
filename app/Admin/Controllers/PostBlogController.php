@@ -117,15 +117,15 @@ class PostBlogController extends Controller
             /** @var $grid PostBlog*/
 
             $grid->post_id('ID')->sortable();
-            $grid->post_name()->setAttributes(['style' => 'max-width:200px;overflow:hidden;text-overflow:ellipsis;']);
-            $grid->slug();
+            $grid->post_name()->editable()->setAttributes(['style' => 'max-width:200px;overflow:hidden;text-overflow:ellipsis;']);
+            $grid->slug()->editable();
             $grid->content();
             $grid->comment_num('评论')->sortable()
                 ->setAttributes(['style' => 'min-width:45px;text-align:center;']);
             $grid->status('状态')->switch($this->states)->setAttributes(['style' => 'width:60px;text-align:center;']);
             $grid->created_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
-            })->setAttributes(['class' => 'created_at'])->sortable();
+            })->setAttributes(['class' => 'created_at'])->sortable()->editable();
             $grid->updated_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
             })->setAttributes(['class' => 'updated_at'])->sortable();
