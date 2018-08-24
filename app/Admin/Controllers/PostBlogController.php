@@ -16,6 +16,11 @@ class PostBlogController extends Controller
 {
     use ModelForm;
 
+    private $states = [
+        'on'  => ['value' => PostBlog::STATUS_PUBLISHED, 'text' => '发布'],
+        'off' => ['value' => PostBlog::STATUS_EDITING, 'text' => '草稿'],
+    ];
+
     /**
      * Index interface.
      *
@@ -117,9 +122,7 @@ class PostBlogController extends Controller
             $grid->content();
             $grid->comment_num('评论')->sortable()
                 ->setAttributes(['style' => 'min-width:45px;text-align:center;']);
-            $grid->status('状态')->display(function ($status) {
-                return PostBlog::$status_map[$status];
-            })->setAttributes(['style' => 'width:60px;text-align:center;']);
+            $grid->status('状态')->switch($this->states)->setAttributes(['style' => 'width:60px;text-align:center;']);
             $grid->created_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
             })->setAttributes(['class' => 'created_at'])->sortable();
@@ -149,11 +152,8 @@ class PostBlogController extends Controller
             $form->text('post_name');
             $form->text('slug');
             $form->textarea('content');
-            $states = [
-                'on'  => ['value' => PostBlog::STATUS_PUBLISHED, 'text' => '发布'],
-                'off' => ['value' => PostBlog::STATUS_EDITING, 'text' => '草稿'],
-            ];
-            $form->switch('status')->states($states);
+
+            $form->switch('status')->states($this->states);
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
 
