@@ -149,6 +149,11 @@ class PostBlogController extends Controller
             $form->text('post_name');
             $form->text('slug');
             $form->textarea('content');
+            $states = [
+                'on'  => ['value' => PostBlog::STATUS_PUBLISHED, 'text' => '发布'],
+                'off' => ['value' => PostBlog::STATUS_EDITING, 'text' => '草稿'],
+            ];
+            $form->switch('status')->states($states);
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
 
