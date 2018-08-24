@@ -112,7 +112,7 @@ class PostBlogController extends Controller
             /** @var $grid PostBlog*/
 
             $grid->post_id('ID')->sortable();
-            $grid->post_name();
+            $grid->post_name()->setAttributes(['style' => 'max-width:200px;overflow:hidden;text-overflow:ellipsis;']);
             $grid->slug();
             $grid->content();
             $grid->comment_num('评论')->sortable()
