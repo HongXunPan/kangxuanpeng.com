@@ -23,13 +23,13 @@ class SiteMap
      */
     public function getSiteMap()
     {
-        Cache::flush();
+//        Cache::flush();
         if (Cache::has('blog-site-map')) {
             return Cache::get('blog-site-map');
         }
 
         $siteMap = $this->buildSiteMap();
-        Cache::add('blog-site-map', $siteMap, 1);
+        Cache::add('blog-site-map', $siteMap, 60);
         return $siteMap;
     }
 
@@ -75,9 +75,7 @@ class SiteMap
         /** @var PostBlog $post */
         foreach ($postsList as $post) {
 //            $this->__buildUrl("{$this->baseUrl}post/{$post->post_id}/{$post->slug}", $post->updated_at);
-            $this->__buildUrl(url('post', ['id' => $post->post_id, 'slug' => $post->slug]),
-                Carbon::parse($post->updated_at)->toW3cString()
-            );
+            $this->__buildUrl(url('post', ['id' => $post->post_id, 'slug' => $post->slug]), $post->updated_at->toW3cString());
         }
     }
 
