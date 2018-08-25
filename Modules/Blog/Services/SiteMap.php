@@ -81,7 +81,7 @@ class SiteMap
 
     protected function __buildConstSiteMap()
     {
-        $this->__buildUrl(url('search'), 0.8);
+        $this->__buildUrl(url('search'), null, null,0.8);
     }
 
     protected function __buildTagSiteMap()
