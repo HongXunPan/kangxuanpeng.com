@@ -66,7 +66,7 @@ class SiteMap
     {
         $this->xml[] = '<?xml version="1.0" encoding="UTF-8"?' . '>';
         $this->xml[] = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-        $this->__buildUrl($this->baseUrl, Carbon::now()->format('Y-m-d H:i:s'), 'daily', 1);
+        $this->__buildUrl($this->baseUrl, Carbon::now()->timezone('Europe/London')->toDateTimeString(), 'daily', 1);
     }
 
     protected function __buildPostSiteMap()
@@ -75,7 +75,9 @@ class SiteMap
         /** @var PostBlog $post */
         foreach ($postsList as $post) {
 //            $this->__buildUrl("{$this->baseUrl}post/{$post->post_id}/{$post->slug}", $post->updated_at);
-            $this->__buildUrl(url('post', ['id' => $post->post_id, 'slug' => $post->slug]), $post->updated_at);
+            $this->__buildUrl(url('post', ['id' => $post->post_id, 'slug' => $post->slug]),
+                Carbon::parse($post->updated_at)->timezone('Europe/London')->toDateTimeString()
+            );
         }
     }
 
