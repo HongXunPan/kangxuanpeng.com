@@ -98,10 +98,15 @@
  
  - 执行迁移文件
  
- ```php artisan migration```
+ ```php artisan migrate```
  
- ```php artisan migration --path=database/migrations/blog```
+ ```php artisan migrate --path=database/migrations/blog```
  
+ - 安装laravel-admin
+ ```composer require encore/laravel-admin "1.5.*"```用 ```composer update```即可
+ 
+ ```php artisan migrate --path=database/migrations/blog```
+
  ## [MyBlog](http://blog.kangxuanpeng.com)
  
  模板来自于[linpx.cn](https://www.linpx.com/),基于typecho的 Pinghsu 皮肤，作者是 Chakhsu
@@ -181,3 +186,5 @@
  - $form->multipleSelect('tags')->options(TagBlog::all()->pluck('tag_name', 'tag_id'));
  
  - laravel edit markdown-live view
+
+- 问题：composer 用root执行，给用户分配，软链 ln -s xxx xxx
