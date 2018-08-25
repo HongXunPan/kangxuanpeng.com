@@ -1,9 +1,9 @@
 @extends('blog::layouts.blog')
 
 @section('htmlHead')
-    <title>Blog - HongXunPan</title>
-    <meta name="keywords" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,website">
-    <meta name="description" content="Index">
+    <title>Blog-HongXunPan-康宣鹏-kangxuanpeng</title>
+    <meta name="description" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,博客,website,Index">
+    <meta name="keyword" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,博客,website,Index">
 @endsection
 
 {{--@section('nav')--}}

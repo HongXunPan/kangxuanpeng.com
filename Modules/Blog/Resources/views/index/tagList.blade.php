@@ -2,6 +2,7 @@
 
 @section('htmlHead')
     <title> {{ $tagName }} - HongXunPan</title>
+    <meta name="description" content="{{ $tagName }}">
     <meta name="keywords" content="{{ $tagName }}">
     <meta name="description" content="👇 The following tabs can help you!">
 @endsection

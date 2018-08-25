@@ -2,8 +2,8 @@
 
 @section('htmlHead')
     <title> {{ $post->post_name }} - HongXunPan</title>
-    <meta name="keywords" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }}">
-    <meta name="description" content="{{ $post->post_name }}">
+    <meta name="description" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
+    <meta name="keywords" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
 @endsection
 
 @section('nav')
