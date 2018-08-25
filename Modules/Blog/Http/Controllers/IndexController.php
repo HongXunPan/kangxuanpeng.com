@@ -14,6 +14,7 @@ use App\TagBlog;
 use Carbon\Carbon;
 use HyperDown\Parser;
 use Illuminate\Routing\Controller;
+use Modules\Blog\Services\SiteMap;
 
 class IndexController extends Controller
 {
@@ -76,5 +77,13 @@ class IndexController extends Controller
         $md = new Parser();
         $md->_commonWhiteList .= '|center';
         return view('blog::index.post', ['post' => $post, 'md' => $md]);
+    }
+
+    public function siteMap(SiteMap $siteMap)
+    {
+        $map = $siteMap->getSiteMap();
+
+        return response($map)
+            ->header('Content-type', 'text/xml');
     }
 }
