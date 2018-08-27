@@ -2,13 +2,14 @@
     <div class="footer-social">
         <div class="footer-container clearfix">
             <div class="social-list">
-                <a class="social github" target="blank" href="https://github.com/HongXunPan">GITHUB</a>
-                <a class="social weibo" target="blank" href="https://www.jianshu.com/u/3f7f9f782c2e">JIANSHU</a>
+                <a class="social github" target="_blank" href="https://github.com/HongXunPan">GITHUB</a>
+                <a class="social weibo" target="_blank" href="https://www.jianshu.com/u/3f7f9f782c2e">JIANSHU</a>
                 {{--<a class="social zhihu" target="blank" href="#">ZHIHU</a>--}}
                 <!--RSS-->
                 {{--<a class="social rss" target="blank" href="#">RSS</a>--}}
                 {{--<a class="social twitter" target="blank" href="#">TWITTER</a>--}}
-                <a class="social twitter" target="blank" href="https://www.instagram.com/hong_xunpan/">INS</a>
+                <a class="social twitter" target="_blank" href="https://www.instagram.com/hong_xunpan/">INS</a>
+                <a class="social mail" target="_blank" href="mailto:kangxuanpeng@163.com" title="EMAIL">EMAIL</a>
             </div>
         </div>
     </div>
