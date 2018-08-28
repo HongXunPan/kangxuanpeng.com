@@ -80,6 +80,11 @@ class IndexController extends Controller
         return view('blog::index.post', ['post' => $post, 'md' => $md]);
     }
 
+    public function about()
+    {
+        return $this->postBySlug('about');
+    }
+
     public function siteMap(SiteMap $siteMap)
     {
         $map = $siteMap->getSiteMap();

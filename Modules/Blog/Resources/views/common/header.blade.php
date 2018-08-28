@@ -6,7 +6,7 @@
         <div class="navbar-menu">
             <a class="current" href="{{ url('/') }}">Index</a>
             {{--<a href="#">Links</a>--}}
-            {{--<a href="#">About</a>--}}
+            <a href="{{ url('about') }}">About</a>
         </div>
         <a href="{{ url('search') }}" class="navbar-search"> <span class="icon-search"></span> </a>
         <div class="navbar-mobile-menu" onclick="">
@@ -14,7 +14,7 @@
             <ul>
                 <li><a class="current" href="{{ url('/') }}">Index</a></li>
                 {{--<li><a href="#">Links</a></li>--}}
-                {{--<li><a href="#">About</a></li>--}}
+                <li><a href="{{ url('about') }}">About</a></li>
             </ul>
         </div>
     </div>
