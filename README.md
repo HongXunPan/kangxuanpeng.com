@@ -117,7 +117,7 @@
  ##### table:posts 文章表
  
  | column | type | attribute | comment |
- | --- | --- | ---| --- |
+| :------: | :------:  | :------:  | :------ | :------: |
  | post_id | int(11) | PK auto increase | 文章ID |
  | post_name | varchar(200) | default '' | 文章标题 |
  | slug | varchar(100) | unique default '' | [将文章标题转化为URL的一部分，以利于SEO](https://laravel-china.org/topics/2857/write-a-url-slug-wheel-to-support-chinese-translation) |
@@ -132,7 +132,7 @@
  ##### table:comments 评论表
  
  | column | type | attribute | comment |
- | --- | --- | ---| --- |
+| :------: | :------:  | :------:  | :------ | :------: |
  | comment_id | int(11) | PK auto increase | 评论ID |
  | post_id | int(11) | default 0 | 文章ID |
  | content | text | | 评论内容 |
@@ -147,7 +147,7 @@
  ##### table:tags 分类表
  
  | column | type | attribute | comment |
- | --- | --- | ---| --- |
+| :------: | :------:  | :------:  | :------ | :------: |
  | tag_id | int(5) | PK auto increase | 标签ID |
  | tag_name | varchar(50) | default '' | 标签名称 |
  | | | | |
@@ -155,7 +155,7 @@
  ##### table:post_tag_relations 文章分类的关系表
  
  | column | type | attribute | comment |
- | --- | --- | ---| --- |
+| :------: | :------:  | :------:  | :------ | :------: |
  | post_id | int(11) | PK1 | 文章ID |
  | tag_id | int(5) | PK1 | 标签ID |
  | | | | |
@@ -176,7 +176,8 @@
  - jellybool/translug post_title_trans_slug 
  - logo&icon
  - laravel edit markdown-live view
-
+ - table-post add column is_index_show default yes
+ - post-view code css-pretty
  
 ## problem && fix
   
