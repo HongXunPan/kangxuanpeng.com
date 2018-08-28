@@ -191,3 +191,4 @@
 
 给用户分配执行权限，软链 ln -s xxx xxx $HOME/bin/xx
 
+- SF的markdown解析器joyqi/hyper-down对表格不完美支持，后续考虑更换erusev/parsedown 尽可能接近github
