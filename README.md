@@ -170,9 +170,9 @@
  - frozennode/administrator backend_view_create
  - 替换分页默认模板 ```{!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}```
  - RSS && SiteMap
+ - hieu-le/active nav_active_style
 
 ## wait-use || todo
- - hieu-le/active nav_active_style
  - jellybool/translug post_title_trans_slug 
  - logo&icon
  - laravel edit markdown-live view
