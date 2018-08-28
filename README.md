@@ -103,6 +103,7 @@
  ```php artisan migrate --path=database/migrations/blog```
  
  - 安装laravel-admin
+ 
  ```composer require encore/laravel-admin "1.5.*"```用 ```composer update```即可
  
  ```php artisan migrate --path=database/migrations/blog```
@@ -159,34 +160,34 @@
  | tag_id | int(5) | PK1 | 标签ID |
  | | | | |
 
-## use package
+## used || finished
 
  - barryvdh/laravel-ide-helper ide_code_tips
  - doctrine/dbal add_model_doc
  - nwidart/laravel-modules create_multi_module
  - joyqi/hyper-down tran markdown to html
- - encore/laravel-admin 
- //php artisan admin:make UserController --model=App\\User 
- wait-use
- - hieu-le/active nav_active_style
+ - encore/laravel-admin  ``` //php artisan admin:make UserController --model=App\\User ```
  - frozennode/administrator backend_view_create
- - jellybool/translug post_title_trans_slug
- 
- 
- //替换分页默认模板
- {!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}
+ - 替换分页默认模板 ```{!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}```
+ - RSS && SiteMap
 
-
- //TODO logo&icon
- 
- //laravel-admin form 一对多 hasMany 可以实现
- 多对多则会报错 hasMany field must be a HasMany or MorphMany relation
- //so 多对多通过关系表来实现的，laravel ORM的关联为belongToMany ，laravel不支持这种写法，需要怎么解决
- 可以通过多选框来实现
- - $form->multipleSelect('tags')->options(TagBlog::all()->pluck('tag_name', 'tag_id'));
- 
+## wait-use || todo
+ - hieu-le/active nav_active_style
+ - jellybool/translug post_title_trans_slug 
+ - logo&icon
  - laravel edit markdown-live view
 
-- 问题：composer 用root执行，给用户分配，软链 ln -s xxx xxx
+ 
+## problem && fix
+  
+- laravel-admin form 多对多实现：
 
--RSS
+一对多 hasMany 可以实现 多对多则会报错 hasMany field must be a HasMany or MorphMany relation
+多对多通过关系表来实现的，laravel ORM的关联为belongToMany ，laravel不支持这种写法， 可以通过laravel-admin多选框来实现
+
+解决： $form->multipleSelect('tags')->options(TagBlog::all()->pluck('tag_name', 'tag_id'));
+ 
+- 问题：composer 不推荐用root执行，
+
+给用户分配执行权限，软链 ln -s xxx xxx $HOME/bin/xx
+
