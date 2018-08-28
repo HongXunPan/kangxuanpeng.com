@@ -70,9 +70,9 @@ class RssFeed
         $this->xml[] = '<item>';
         $this->xml[] = '<title>'. $post->post_name. '</title>';
         $this->xml[] = '<link>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]).'</link>';
-        $this->xml[] = '<description>'. str_limit($post->content, 50) .'</description>';
+        $this->xml[] = '<description>'. str_limit($post->content, 150) .'</description>';
         $this->xml[] = '<pubDate>' . $post->created_at->toRfc822String(). '</pubDate>';
-        $this->xml[] = '<author>kangxuanpeng@163.com</author>';
+        $this->xml[] = '<author>kangxuanpeng@163.com (HongXunPan)</author>';
         $this->xml[] = '<guid>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]) .'</guid>';
         $this->xml[] = '<category>'. implode(',', $tagList).'</category>';
         $this->xml[] = '</item>';
