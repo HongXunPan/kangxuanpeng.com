@@ -17,4 +17,5 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
     Route::get('/post/{slug}', 'IndexController@postBySlug');
 
     Route::get('sitemap.xml', 'IndexController@siteMap');
+    Route::get('feed.xml', 'IndexController@feed');
 });

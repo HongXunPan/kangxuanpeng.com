@@ -14,6 +14,7 @@ use App\TagBlog;
 use Carbon\Carbon;
 use HyperDown\Parser;
 use Illuminate\Routing\Controller;
+use Modules\Blog\Services\RssFeed;
 use Modules\Blog\Services\SiteMap;
 
 class IndexController extends Controller
@@ -85,5 +86,12 @@ class IndexController extends Controller
 
         return response($map)
             ->header('Content-type', 'text/xml');
+    }
+
+    public function feed(RssFeed $rssFeed)
+    {
+        $rss = $rssFeed->getRSS();
+
+        return response($rss)->header('Content-type', 'text/xml');
     }
 }
