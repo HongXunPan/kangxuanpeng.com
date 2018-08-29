@@ -45,15 +45,20 @@
         }, false);
     } </script>
 
-{{--<script data-no-instant> InstantClick.on('change', function (isInitialLoad) {--}}
-        {{--var blocks = document.querySelectorAll('pre code');--}}
-        {{--for (var i = 0; i < blocks.length; i++) {--}}
-            {{--hljs.highlightBlock(blocks[i]);--}}
-        {{--}--}}
-        {{--// delete MathJax whole file--}}
-    {{--});--}}
-    {{--InstantClick.init('mousedown');--}}
-{{--</script>--}}
+<script data-no-instant> InstantClick.on('change', function (isInitialLoad) {
+        var blocks = document.querySelectorAll('pre code');
+        for (var i = 0; i < blocks.length; i++) {
+            hljs.highlightBlock(blocks[i]);
+        }
+        // do analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124606004-1');
+    });
+    InstantClick.init('mousedown');
+</script>
 {{--title script--}}
 <script>
     var OriginTitile = document.title,
