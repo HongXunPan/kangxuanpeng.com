@@ -21,6 +21,11 @@ class PostBlogController extends Controller
         'off' => ['value' => PostBlog::STATUS_EDITING, 'text' => '草稿'],
     ];
 
+    private $indexShowStates = [
+        'on' => ['value' => PostBlog::IS_INDEX_SHOW, 'text' => '显示'],
+        'off' => ['value' => PostBlog::IS_INDEX_NOT_SHOW, 'text' => '不显示'],
+    ];
+
     /**
      * Index interface.
      *
@@ -123,6 +128,7 @@ class PostBlogController extends Controller
             $grid->comment_num('评论')->sortable()
                 ->setAttributes(['style' => 'min-width:45px;text-align:center;']);
             $grid->status('状态')->switch($this->states)->setAttributes(['style' => 'width:60px;text-align:center;']);
+            $grid->is_index_show('首页显示')->switch($this->indexShowStates)->setAttributes(['style' => 'width:60px;text-align:center;']);
             $grid->created_at()->display(function ($time) {
                 return date('Y-m-d H:i:s', $time);
             })->setAttributes(['class' => 'created_at'])->sortable()->editable();
@@ -154,6 +160,7 @@ class PostBlogController extends Controller
             $form->textarea('content');
 
             $form->switch('status')->states($this->states);
+            $form->switch('is_index_show')->states($this->indexShowStates);
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
 

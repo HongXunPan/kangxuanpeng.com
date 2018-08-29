@@ -48,6 +48,14 @@ class PostBlog extends Model
         self::STATUS_PUBLISHED => '已发布',
     ];
 
+    const IS_INDEX_SHOW = 1;
+    const IS_INDEX_NOT_SHOW = 0;
+
+    public static $is_index_show_map = [
+        self::IS_INDEX_NOT_SHOW => '不显示',
+        self::IS_INDEX_SHOW => '显示',
+    ];
+
     public function comments()
     {
         return $this->hasMany('App\CommentBlog', 'post_id');

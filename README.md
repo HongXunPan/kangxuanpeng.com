@@ -171,13 +171,13 @@
  - 替换分页默认模板 ```{!! preg_replace("~(/\d+)?\?page=~", '/', $postList->render()) !!}```
  - RSS && SiteMap
  - hieu-le/active nav_active_style
+ - post-view code css-pretty AS jianshu
+ - table-post add column is_index_show default yes
 
 ## wait-use || todo
  - jellybool/translug post_title_trans_slug 
  - logo&icon
  - laravel edit markdown-live view
- - table-post add column is_index_show default yes
- - post-view code css-pretty
  
 ## problem && fix
   

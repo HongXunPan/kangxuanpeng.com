@@ -21,7 +21,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->orderby('created_at', SORT_DESC)->get();
+        $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->where(['is_index_show' => PostBlog::IS_INDEX_SHOW])
+            ->orderby('created_at', SORT_DESC)->get();
         /** @var  $post PostBlog */
         $posts = [];
         foreach ($postList as $post) {
