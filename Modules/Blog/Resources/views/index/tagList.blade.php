@@ -15,7 +15,7 @@
     <div class="main-content common-page clearfix">
         <div class="common-item">
             <div class="common-title">
-                Tag : {{ $tagName }}
+                @if (isset($page)) {{$page}} @else Tag @endif: {{ $tagName }}
             </div>
             <div class="post-lists">
                 <div class="post-lists-body">

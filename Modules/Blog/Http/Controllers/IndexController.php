@@ -37,7 +37,7 @@ class IndexController extends Controller
         //paginate = 18
         $tag = TagBlog::whereTagName($tagName)->first();
         $postList = $tag->posts()->where('status', PostBlog::STATUS_PUBLISHED)
-            ->orderBy('created_at', SORT_DESC)->paginate(6, ['*'], 'page', $page);
+            ->orderBy('created_at', SORT_DESC)->paginate(15, ['*'], 'page', $page);
         return view('blog::index.tagList', ['tagName' => $tagName, 'postList' => $postList]);
     }
 
@@ -54,6 +54,22 @@ class IndexController extends Controller
         }
         array_multisort($counts, SORT_DESC, SORT_NUMERIC, $tags);
         return view('blog::index.searchPage', ['tagList' => $tags]);
+    }
+
+    public function search($keyword, $page = 1)
+    {
+        $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)
+            ->where(function ($query) use ($keyword) {
+                $query->where('post_name', 'like', "%$keyword%")
+                    ->orwhere(function ($query) use ($keyword) {
+                        $query->where('slug', 'like', "%$keyword%")  //content
+                            ->orWhere(function ($query) use ($keyword) {
+                                $query->where('content', 'like', "%$keyword%");
+                        })
+                        ;
+                    });
+        })->orderBy('created_at', SORT_DESC)->paginate(15, ['*'], 'page', $page);
+        return view('blog::index.tagList', ['tagName' => $keyword, 'page' => 'Search', 'postList' => $postList]);
     }
 
     public function postByIdSlug($id, $slug = '')
