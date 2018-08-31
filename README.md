@@ -173,6 +173,7 @@
  - hieu-le/active nav_active_style
  - post-view code css-pretty AS jianshu
  - table-post add column is_index_show default yes
+ - 新增搜索结果页，目前只支持post_name,slug,content 搜索，后续增加tag_name匹配
 
 ## wait-use || todo
  - jellybool/translug post_title_trans_slug 
