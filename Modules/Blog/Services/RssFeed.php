@@ -11,14 +11,12 @@ namespace Modules\Blog\Services;
 
 use App\PostBlog;
 use Carbon\Carbon;
-use HyperDown\Parser;
 use Illuminate\Support\Facades\Cache;
 
 class RssFeed
 {
     private $baseUrl;
     private $xml = [];
-    private $md;
 
     /**
      * Return the content of the RSS feed
@@ -70,10 +68,9 @@ class RssFeed
     private function __buildItem(PostBlog $post, $tagList)
     {
         $this->xml[] = '<item>';
-        $this->xml[] = '<title><![CDATA['. $post->post_name. ']]></title>';
+        $this->xml[] = '<title>'. $post->post_name. '</title>';
         $this->xml[] = '<link>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]).'</link>';
         $this->xml[] = '<description>'. str_limit($post->content, 150) .'</description>';
-        $this->xml[] = '<content><![CDATA[' . $this->md->makeHtml($post->content) . ']]></content>';
         $this->xml[] = '<pubDate>' . $post->created_at->toRfc822String(). '</pubDate>';
         $this->xml[] = '<author>kangxuanpeng@163.com (HongXunPan)</author>';
         $this->xml[] = '<guid>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]) .'</guid>';
@@ -83,8 +80,6 @@ class RssFeed
 
     private function __buildPost()
     {
-        $this->md = new Parser();
-        $this->md->_commonWhiteList .= '|center';
         $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->orderBy('created_at', 'desc')->get();
 
         /** @var PostBlog $post */
