@@ -195,4 +195,4 @@
 
 - SF的markdown解析器joyqi/hyper-down对表格不完美支持，后续考虑更换erusev/parsedown 尽可能接近github
 
-- Rss阅读需要优化
+- Rss阅读需要优化 ```2018.9.25 done```
