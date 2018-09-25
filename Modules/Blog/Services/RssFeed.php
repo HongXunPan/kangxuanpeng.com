@@ -27,7 +27,7 @@ class RssFeed
      */
     public function getRSS()
     {
-        Cache::clear();
+//        Cache::clear();
         if (Cache::has('rss-feed')) {
             return Cache::get('rss-feed');
         }
