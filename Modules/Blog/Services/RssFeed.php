@@ -77,8 +77,9 @@ class RssFeed
             $item = new Item();
             $item
                 ->title($post->post_name)
-                ->description(str_limit($md->makeHtml($post->content), 150))
-                ->contentEncoded($md->makeHtml($post->content))
+//                ->description(str_limit($md->makeHtml($post->content), 150))
+                ->description($md->makeHtml($post->content))
+//                ->contentEncoded($md->makeHtml($post->content))
                 ->url(url('post', ['id' => $post->post_id, 'slug' => $post->slug]))
                 ->category(implode(',', $tagList))
                 ->author('HongXunPan')
