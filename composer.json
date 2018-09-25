@@ -12,7 +12,8 @@
         "joyqi/hyper-down": "dev-master",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
-        "nwidart/laravel-modules": "^3.3"
+        "nwidart/laravel-modules": "^3.3",
+        "suin/php-rss-writer": "^1.6"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",
