@@ -11,12 +11,16 @@ namespace Modules\Blog\Services;
 
 use App\PostBlog;
 use Carbon\Carbon;
+use HyperDown\Parser;
 use Illuminate\Support\Facades\Cache;
+use Suin\RSSWriter\Channel;
+use Suin\RSSWriter\Feed;
+use Suin\RSSWriter\Item;
 
 class RssFeed
 {
     private $baseUrl;
-    private $xml = [];
+    private $rss;
 
     /**
      * Return the content of the RSS feed
@@ -28,59 +32,41 @@ class RssFeed
             return Cache::get('rss-feed');
         }
 
-        $rss = $this->buildRssData();
-        Cache::add('rss-feed', $rss, 120);
+        $this->buildRss();
+        Cache::add('rss-feed', $this->rss, 120);
 
-        return $rss;
+        return $this->rss;
     }
 
-    /**
-     * Return a string with the feed data
-     *
-     * @return string
-     */
-    protected function buildRssData()
+    private function buildRss()
     {
-        $this->baseUrl = trim(url('/'), '/') . '/';
+        $feed = new Feed();
 
-        $this->xml[] = '<?xml version="1.0" encoding="UTF-8"?>';
-        $this->xml[] = '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">';
-        $this->xml[] = '<channel>';
-        $this->xml[] = '<title>Blog-HongXunPan-kangxuanpeng-康宣鹏</title>';
-        $this->xml[] = '<description>康宣鹏,HongXunPan,kangxuanpeng,Blog,博客,website,Index</description>';
-//        $this->xml[] = "<url>$this->baseUrl</url>";
-        $this->xml[] = '<atom:link href="'. url('feed.xml') .'" rel="self" type="application/rss+xml"/>';
-        $this->xml[] = "<link>$this->baseUrl</link>";
-        $this->xml[] = '<pubDate>'.Carbon::parse('2018-08-28')->toRfc822String().'</pubDate>';
-        $this->xml[] = '<lastBuildDate>'. Carbon::now()->toRfc822String() .'</lastBuildDate>';
-        $this->xml[] = '<generator>HongXunPan</generator>';
+        $channel = new Channel();
+        $channel
+            ->title('Blog-HongXunPan-kangxuanpeng-康宣鹏')
+            ->description('康宣鹏,HongXunPan,kangxuanpeng,Blog,博客,website,Index')
+            ->url($this->baseUrl)
+            ->feedUrl(url('feed.xml'))
+//            ->language('en-ZH')
+            ->copyright('Copyright 2018, HongXunPan')
+            ->pubDate(Carbon::parse('2018-08-28')->getTimestamp())
+            ->lastBuildDate(Carbon::now()->getTimestamp())
+//            ->ttl(60)
+//            ->pubsubhubbub('http://example.com/feed.xml', 'http://pubsubhubbub.appspot.com') // This is optional. Specify PubSubHubbub discovery if you want.
+            ->appendTo($feed);
 
-        $this->__buildPost();
+        $this->buildItem($channel);
 
-
-        $this->xml[] = '</channel>';
-        $this->xml[] = '</rss>';
-
-//        dd($this->xml);
-        return join("\n", $this->xml);
+        $this->rss = $feed->render(); // or echo $feed->render();
     }
 
-    private function __buildItem(PostBlog $post, $tagList)
-    {
-        $this->xml[] = '<item>';
-        $this->xml[] = '<title>'. $post->post_name. '</title>';
-        $this->xml[] = '<link>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]).'</link>';
-        $this->xml[] = '<description>'. str_limit($post->content, 150) .'</description>';
-        $this->xml[] = '<pubDate>' . $post->created_at->toRfc822String(). '</pubDate>';
-        $this->xml[] = '<author>kangxuanpeng@163.com (HongXunPan)</author>';
-        $this->xml[] = '<guid>'. url('post', ['id' => $post->post_id, 'slug' => $post->slug]) .'</guid>';
-        $this->xml[] = '<category>'. implode(',', $tagList).'</category>';
-        $this->xml[] = '</item>';
-    }
-
-    private function __buildPost()
+    private function buildItem($channel)
     {
         $postList = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->orderBy('created_at', 'desc')->get();
+
+        $md = new Parser();
+        $md->_commonWhiteList .= '|center';
 
         /** @var PostBlog $post */
         foreach ($postList as $post) {
@@ -88,7 +74,19 @@ class RssFeed
             foreach ($post->tags as $tag) {
                 $tagList[] = $tag->tag_name;
             }
-            $this->__buildItem($post, $tagList);
+            $item = new Item();
+            $item
+                ->title($post->post_name)
+                ->description(str_limit($md->makeHtml($post->content), 150))
+                ->contentEncoded($md->makeHtml($post->content))
+                ->url(url('post', ['id' => $post->post_id, 'slug' => $post->slug]))
+                ->category(implode(',', $tagList))
+                ->author('HongXunPan')
+                ->pubDate($post->created_at->getTimestamp())
+                ->guid(url('post', ['id' => $post->post_id, 'slug' => $post->slug]), true)
+                ->preferCdata(true)// By this, title and description become CDATA wrapped HTML.
+                ->appendTo($channel);
         }
+
     }
 }
