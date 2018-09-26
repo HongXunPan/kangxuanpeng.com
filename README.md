@@ -174,11 +174,16 @@
  - post-view code css-pretty AS jianshu
  - table-post add column is_index_show default yes
  - 新增搜索结果页，目前只支持post_name,slug,content 搜索，后续增加tag_name匹配
+ - Rss阅读需要优化 ```2018.9.25 done```
+ - logo&icon
+
 
 ## wait-use || todo
  - jellybool/translug post_title_trans_slug 
- - logo&icon
  - laravel edit markdown-live view
+ - comment
+ - 获取上一篇下一篇文章
+ 
  
 ## problem && fix
   
@@ -194,5 +199,3 @@
 给用户分配执行权限，软链 ln -s xxx xxx $HOME/bin/xx
 
 - SF的markdown解析器joyqi/hyper-down对表格不完美支持，后续考虑更换erusev/parsedown 尽可能接近github
-
-- Rss阅读需要优化 ```2018.9.25 done```
