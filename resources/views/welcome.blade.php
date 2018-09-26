@@ -31,7 +31,7 @@
     <div class="content">
         <div class="title m-b-md"><a onclick="">HongXunPan</a></div>
         <div class="links">
-            <a href="#">xxx</a>
+            {{--<a href="#">xxx</a>--}}
             <a href="http://blog.kangxuanpeng.com">Blog</a>
             <a href="http://me.kangxuanpeng.com">About Me</a>
             <a href="#">Contact</a>
