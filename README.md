@@ -176,13 +176,14 @@
  - 新增搜索结果页，目前只支持post_name,slug,content 搜索，后续增加tag_name匹配
  - Rss阅读需要优化 ```2018.9.25 done```
  - logo&icon
+ - 获取上一篇下一篇文章
 
 
 ## wait-use || todo
  - jellybool/translug post_title_trans_slug 
  - laravel edit markdown-live view
  - comment
- - 获取上一篇下一篇文章
+ - share.. ```fb,tw,weibo,qrcode```
  
  
 ## problem && fix
