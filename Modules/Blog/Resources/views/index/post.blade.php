@@ -4,6 +4,7 @@
     <title> {{ $post->post_name }} - HongXunPan</title>
     <meta name="description" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
     <meta name="keywords" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
+    <link href="{{ asset('/css/blog/post/style.css') }}" rel="stylesheet">
 @endsection
 
 @section('nav')

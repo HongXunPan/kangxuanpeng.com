@@ -89,3 +89,22 @@
         }, false);
     }
 </script>
+<script src="{{ asset('js/blog/qrcode.min.js') }}"></script>
+<script type="text/javascript">
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "{{ url()->full() }}",
+        width: 120,
+        height: 120,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+</script>
+<script src="{{ asset('js/blog/jquery.min.js') }}"></script>
+<script>
+    $(".bottom-bar-qrcode").hover(function () {
+        $("#qrcode").show();
+    }, function () {
+        $("#qrcode").hide();
+    })
+</script>
