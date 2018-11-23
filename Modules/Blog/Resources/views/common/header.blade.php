@@ -6,8 +6,8 @@
         <div class="navbar-menu">
             <a class="{{ active_class(if_uri('/'), 'current') }}" href="{{ url('/') }}">Index</a>
             {{--<a href="#">Links</a>--}}
-            <a class="{{ active_class(if_uri('about'), 'current') }}" href="{{ url('about') }}">About</a>
             <a class="{{ active_class(if_uri('website-intro'), 'current') }}" href="{{ url('website-intro') }}">Website Intro</a>
+            <a class="{{ active_class(if_uri('about'), 'current') }}" href="{{ url('about') }}">About</a>
         </div>
         <a href="{{ url('search') }}" class="navbar-search"> <span class="icon-search"></span> </a>
         <div class="navbar-mobile-menu" onclick="">
@@ -15,8 +15,8 @@
             <ul>
                 <li><a class="{{ active_class(if_uri('/'), 'current') }}" href="{{ url('/') }}">Index</a></li>
                 {{--<li><a href="#">Links</a></li>--}}
-                <li><a class="{{ active_class(if_uri('about'), 'current') }}" href="{{ url('about') }}">About</a></li>
                 <li><a class="{{ active_class(if_uri('website-intro'), 'current') }}" href="{{ url('website-intro') }}">Website Intro</a></li>
+                <li><a class="{{ active_class(if_uri('about'), 'current') }}" href="{{ url('about') }}">About</a></li>
             </ul>
         </div>
     </div>
