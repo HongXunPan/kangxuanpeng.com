@@ -9,7 +9,7 @@
                 <a class="social rss" target="_blank" href="{{ url('feed.xml') }}">RSS</a>
                 {{--<a class="social twitter" target="blank" href="#">TWITTER</a>--}}
                 <a class="social twitter" target="_blank" href="https://www.instagram.com/hong_xunpan/">INS</a>
-                <a class="social mail" target="_blank" href="mailto:kangxuanpeng@163.com" title="EMAIL">EMAIL</a>
+                <a class="social mail" target="_blank" href="mailto:me@kangxuanpeng.com" title="EMAIL">EMAIL</a>
             </div>
         </div>
     </div>
