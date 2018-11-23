@@ -102,6 +102,11 @@ class IndexController extends Controller
         return $this->postBySlug('about');
     }
 
+    public function websiteIntro()
+    {
+        return $this->postBySlug('website-intro');
+    }
+
     public function siteMap(SiteMap $siteMap)
     {
         $map = $siteMap->getSiteMap();
