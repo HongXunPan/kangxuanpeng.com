@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\CommentBlog[] $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\CommentBlog[] $parentComments
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\TagBlog[] $tags
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PostBlog whereAuthorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PostBlog whereCommentNum($value)
@@ -59,6 +60,11 @@ class PostBlog extends Model
     public function comments()
     {
         return $this->hasMany('App\CommentBlog', 'post_id');
+    }
+
+    public function parentComments()
+    {
+        return $this->hasMany('App\CommentBlog', 'post_id')->where('parent_id','=','0');
     }
 
     public function tags()

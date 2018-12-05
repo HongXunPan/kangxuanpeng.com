@@ -5,6 +5,11 @@
     <meta name="description" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
     <meta name="keywords" content="@foreach($post->tags as $tag) {{ $tag->tag_name }},@endforeach{{ $post->slug }},{{ str_limit($post->post_name, 20, '...') }}">
     <link href="{{ asset('/css/blog/post/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/blog/post/comment.css') }}" rel="stylesheet">
+@endsection
+
+@section('body')
+    <body gtools_scp_screen_capture_injected="true">
 @endsection
 
 @section('nav')
@@ -45,6 +50,7 @@
     @include('blog::post.bottomBar')
 
     {{--//TODO comment List--}}
+    @include('blog::post.comment-modal')
 
     <div id="directory-content" class="directory-content">
         <div id="directory"></div>

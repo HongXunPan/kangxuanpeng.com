@@ -11,7 +11,10 @@
 
     @include('blog::common.ga-config')
 </head>
-<body class="bg-grey" gtools_scp_screen_capture_injected="true">
+@section('body')
+        <body class="bg-grey" gtools_scp_screen_capture_injected="true">
+@show
+
 @include('blog::common.ie8')
 
 @section('nav')

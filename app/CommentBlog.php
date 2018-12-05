@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \App\PostBlog $post
+ * @property-read \App\PostBlog $children
+ * @property-read \App\PostBlog $parent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CommentBlog whereCommentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CommentBlog whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CommentBlog whereCreatedAt($value)
@@ -42,5 +44,15 @@ class CommentBlog extends Model
     public function post()
     {
         return $this->belongsTo('App\PostBlog', 'post_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany('App\CommentBlog', 'parent_id', 'comment_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo('App\CommentBlog', 'parent_id', 'comment_id');
     }
 }

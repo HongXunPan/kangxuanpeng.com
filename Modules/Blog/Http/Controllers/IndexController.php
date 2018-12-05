@@ -92,6 +92,7 @@ class IndexController extends Controller
             $where['slug'] = $slug;
         }
         $post = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->where($where)->firstOrFail();
+//        dd($post->parentComments[8]->children);
         $md = new Parser();
         $md->_commonWhiteList .= '|center';
         return view('blog::index.post', ['post' => $post, 'md' => $md]);
