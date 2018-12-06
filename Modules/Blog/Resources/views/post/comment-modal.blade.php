@@ -30,25 +30,7 @@
             <button type="submit" class="submit" id="misubmit">SUBMIT</button>
             <input type="hidden" name="_" value="ed13e5d6f94bbf2c2a16e32dcf761b27"></form>
         @include('blog::post.comment-list')
-
-        <div class="lists-navigator clearfix">
-            <ol class="page-navigator">
-                <li class="current"><a
-                            href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment-page-1#comments">1</a>
-                </li>
-                <li>
-                    <a href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment-page-2#comments">2</a>
-                </li>
-                <li>
-                    <a href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment-page-3#comments">3</a>
-                </li>
-                <li>
-                    <a href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment-page-4#comments">4</a>
-                </li>
-                <li class="next"><a
-                            href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment-page-2#comments">→</a>
-                </li>
-            </ol>
-        </div>
+        {!! preg_replace("~(\b/commentPage-\d+)?\?commentPage=~", '/commentPage-', $commentList->render()) !!}
+        
     </div>
 </div>

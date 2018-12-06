@@ -72,6 +72,11 @@ class IndexController extends Controller
         return view('blog::index.tagList', ['tagName' => $keyword, 'page' => 'Search', 'postList' => $postList]);
     }
 
+    public function postById($id)
+    {
+        return $this->__renderPost($id);
+    }
+
     public function postByIdSlug($id, $slug = '')
     {
         return $this->__renderPost($id, $slug);
@@ -84,6 +89,8 @@ class IndexController extends Controller
 
     private function __renderPost($id = 0, $slug = '')
     {
+        $commentPage = (int)preg_replace('/\bcommentPage-/', '', request()->commentPage);
+        !is_int($commentPage) && $commentPage = 1;
         $where = [];
         if ($id !== 0 ) {
             $where['post_id'] = $id;
@@ -92,10 +99,10 @@ class IndexController extends Controller
             $where['slug'] = $slug;
         }
         $post = PostBlog::whereStatus(PostBlog::STATUS_PUBLISHED)->where($where)->firstOrFail();
-//        dd($post->parentComments[8]->children);
+        $commentList = $post->parentComments()->orderBy('created_at', 'desc')->paginate(6, ['*'], 'commentPage', $commentPage);
         $md = new Parser();
         $md->_commonWhiteList .= '|center';
-        return view('blog::index.post', ['post' => $post, 'md' => $md]);
+        return view('blog::index.post', ['post' => $post, 'md' => $md, 'commentList' => $commentList]);
     }
 
     public function about()
