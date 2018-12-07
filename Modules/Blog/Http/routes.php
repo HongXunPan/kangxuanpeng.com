@@ -16,6 +16,7 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
     Route::get('/post/{id}/{commentPage?}', 'PostController@postById')->where(['id', '[0-9]+', 'commentPage' => '\bcommentPage-\d+']);
     Route::get('/post/{id}/{slug?}/{commentPage?}', 'PostController@postByIdSlug')->where(['id' => '[0-9]+', 'commentPage' => '\bcommentPage-\d+']);
     Route::get('/post/{slug}', 'PostController@postBySlug');
+    Route::post('/post/comment/{id}', 'PostController@comment')->where('id', '\d+');
 
 
     Route::get('sitemap.xml', 'IndexController@siteMap');

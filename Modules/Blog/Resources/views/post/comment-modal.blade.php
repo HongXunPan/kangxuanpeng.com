@@ -1,16 +1,16 @@
-<div id="respond-post-1" class="comment-container">
+<div id="respond-post-{{ $post->post_id }}" class="comment-container">
     <div id="comments" class="clearfix">
         <span class="response">Responses
             <a id="cancel-comment-reply-link"
-               href="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html#respond-post-1"
-               rel="nofollow" style="display:none" onclick="return TypechoComment.cancelReply();"> / Cancel Reply</a>
+               href="{{  URL::current() }}#respond-post-1"
+               rel="nofollow" @if(!Request()->replyTo)style="display:none"@endif> / Cancel Reply</a>
         </span>
         {{--input comment--}}
         <form method="post"
-              action="https://www.linpx.com/p/the-move-to-change-the-domain-name-to-start-blog-revision.html/comment?_=2b9a1bab8a31620d8848c64be0b51f16"
+              action="{{ url('post/comment/'.$post->post_id) }}"
               id="comment-form" class="comment-form" role="form"
               onsubmit="getElementById('misubmit').disabled=true;return true;">
-            <input type="text" name="author"
+            <input type="text" name="nick_name"
                    maxlength="12" id="author"
                    class="form-control input-control clearfix"
                    placeholder="Name (*)" value=""
@@ -22,15 +22,21 @@
                    placeholder="Email (*)"
                    value=""
                    required="">
-            <input type="url" name="url" id="url" class="form-control input-control clearfix"
+            <input type="url" name="site" id="url" class="form-control input-control clearfix"
                    placeholder="Site (http://)" value="">
-            <textarea name="text" id="textarea" class="form-control"
-                      placeholder="Your comment here. Be cool. "
+            <textarea name="content" id="textarea" class="form-control"
+                      placeholder="Type your comment here. Be cool. "
                       required=""></textarea>
+            {{ csrf_field() }}
             <button type="submit" class="submit" id="misubmit">SUBMIT</button>
-            <input type="hidden" name="_" value="ed13e5d6f94bbf2c2a16e32dcf761b27"></form>
+            <input type="hidden" name="_" value="{{ url()->current() }}">
+            @if(Request()->replyTo)<input type="hidden" name="parent_id" value="{{ Request()->replyTo }}">@endif
+        </form>
         @include('blog::post.comment-list')
+        @if(!$commentList->hasPages())
+            <div class="lists-navigator clearfix">
+            </div>
+        @endif
         {!! preg_replace("~(\b/commentPage-\d+)?\?commentPage=~", '/commentPage-', $commentList->render()) !!}
-        
     </div>
 </div>

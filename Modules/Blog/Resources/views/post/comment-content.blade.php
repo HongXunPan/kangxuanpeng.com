@@ -6,7 +6,7 @@
             {{--<img class="avatar" src="" width="80" height="80">--}}
             <span class="comment-author">
                 @if($comment->site)
-                    <a href="http://{{ $comment->site }}" target="_blank" rel="external nofollow">{{ $comment->nick_name }}</a>
+                    <a href="{{ $comment->site }}" target="_blank" rel="external nofollow">{{ $comment->nick_name }}</a>
                 @else
                     {{ $comment->nick_name }}
                 @endif
@@ -25,7 +25,7 @@
             <time class="comment-time">{{ $comment->created_at->format('M j, Y H:i:s') }}</time>
             {{--reply-btn--}}
             <span class="comment-reply">
-                <a href="/comment-page-1?replyTo=2610#respond-post-1" rel="nofollow"
+                <a href="{{ url()->current() }}?replyTo={{ $comment->comment_id }}#respond-post-{{ $post->post_id }}" rel="nofollow"
                 >Reply</a>
             </span>
         </div>

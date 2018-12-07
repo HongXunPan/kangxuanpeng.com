@@ -1,7 +1,7 @@
 <div class="comment-children">
     <ol class="comment-list">
         @foreach($comment->children as $comment)
-            <li id="li-comment-2611" class="comment-body comment-child">
+            <li id="li-comment-{{ $comment->comment_id }}" class="comment-body comment-child">
                 @include('blog::post.comment-content')
             </li>
         @endforeach

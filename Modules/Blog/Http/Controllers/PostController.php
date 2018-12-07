@@ -9,6 +9,7 @@
 namespace Modules\Blog\Http\Controllers;
 
 
+use App\CommentBlog;
 use App\PostBlog;
 use HyperDown\Parser;
 use Illuminate\Routing\Controller;
@@ -40,7 +41,7 @@ class PostController extends Controller
         $commentPage = (int)preg_replace('/\bcommentPage-/', '', request()->commentPage);
         !is_int($commentPage) && $commentPage = 1;
         $where = [];
-        if ($id !== 0 ) {
+        if ($id !== 0) {
             $where['post_id'] = $id;
         }
         if ($slug !== '') {
@@ -51,5 +52,14 @@ class PostController extends Controller
         $md = new Parser();
         $md->_commonWhiteList .= '|center';
         return view('blog::index.post', ['post' => $post, 'md' => $md, 'commentList' => $commentList]);
+    }
+
+    public function comment($id)
+    {
+        $input = request()->all();
+        $input['post_id'] = $id;
+        if (!$input['site']) unset($input['site']) ;
+        $res = CommentBlog::create($input);
+        return redirect($input['_'].'#li-comment-'.$res->comment_id);
     }
 }
