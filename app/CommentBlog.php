@@ -41,6 +41,8 @@ class CommentBlog extends Model
 
     protected $table = 'comments_blog';
 
+    protected $fillable = ['post_id', 'content', 'parent_id', 'nick_name', 'email', 'site'];
+
     public function post()
     {
         return $this->belongsTo('App\PostBlog', 'post_id');
