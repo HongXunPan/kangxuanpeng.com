@@ -7,8 +7,6 @@
         <title>Blog - HongXunPan</title>
         <meta name="keywords" content="康宣鹏,HongXunPan,kangxuanpeng,Blog,website">
         <meta name="description" content="Index">
-        <link href="{{ asset('/css/blog/post/style.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('/css/blog/post/comment.min.css') }}" rel="stylesheet">
     @show
 
     @include('blog::common.ga-config')

@@ -16,6 +16,9 @@
 
 <link href="{{ asset('/css/blog/xcode.min.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/blog/style.min.css') }}" rel="stylesheet">
+{{--post--}}
+<link href="{{ asset('/css/blog/post/style.min.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/blog/post/comment.min.css') }}" rel="stylesheet">
 <!--[if lt IE 9]>
 <script src="{{ asset('/js/blog/html5.min.js') }}"></script>
 <script src="{{ asset('/js/blog/respond.min.js') }}"></script> <![endif]-->
