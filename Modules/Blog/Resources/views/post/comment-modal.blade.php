@@ -9,7 +9,7 @@
         <form method="post"
               action="{{ url('post/comment/'.$post->post_id) }}"
               id="comment-form" class="comment-form" role="form"
-              onsubmit="comfirmForm()">
+              onsubmit="confirmForm()">
             <input type="text" name="nick_name"
                    maxlength="12" id="author"
                    class="form-control input-control clearfix"
