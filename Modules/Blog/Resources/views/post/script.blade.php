@@ -95,5 +95,16 @@
         $("#qrcode").show();
     }, function () {
         $("#qrcode").hide();
-    })
+    });
+    document.getElementById("author").setAttribute('value', localStorage.getItem('nick_name') == null ? '' : localStorage.getItem('nick_name'));
+    document.getElementById("mail").setAttribute('value', localStorage.getItem('email') == null ? '' : localStorage.getItem('email'));
+    document.getElementById("url").setAttribute('value', localStorage.getItem('site') == null ? '' : localStorage.getItem('site'));
+
+    function comfirmForm() {
+        document.getElementById('misubmit').disabled=true;
+        localStorage.setItem("nick_name", document.getElementById('author').value);
+        localStorage.setItem("email", document.getElementById('mail').value);
+        localStorage.setItem("site", document.getElementById('url').value);
+        return true;
+    }
 </script>

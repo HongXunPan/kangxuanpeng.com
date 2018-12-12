@@ -9,14 +9,14 @@
         <form method="post"
               action="{{ url('post/comment/'.$post->post_id) }}"
               id="comment-form" class="comment-form" role="form"
-              onsubmit="getElementById('misubmit').disabled=true;return true;">
+              onsubmit="comfirmForm()">
             <input type="text" name="nick_name"
                    maxlength="12" id="author"
                    class="form-control input-control clearfix"
                    placeholder="Name (*)" value=""
                    required="">
             <input type="email"
-                   name="mail"
+                   name="email"
                    id="mail"
                    class="form-control input-control clearfix"
                    placeholder="Email (*)"
