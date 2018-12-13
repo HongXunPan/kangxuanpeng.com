@@ -177,13 +177,15 @@
  - Rss阅读需要优化 ```2018.9.25 done```
  - logo&icon
  - 获取上一篇下一篇文章
+ - share.. ```fb,tw,weibo,qrcode```
+ - comment
 
 
 ## wait-use || todo
  - jellybool/translug post_title_trans_slug 
  - laravel edit markdown-live view
- - comment
- - share.. ```fb,tw,weibo,qrcode```
+ - mail send-mail listener - queue reply-mail-notice
+ - notice:no-reply@kangxuanpeng.com inform@kangxuanpeng.com
  
  
 ## problem && fix
