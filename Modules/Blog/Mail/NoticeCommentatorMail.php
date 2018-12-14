@@ -50,6 +50,6 @@ class NoticeCommentatorMail extends Mailable
      */
     public function build()
     {
-        return $this->view('blog::mail.noticeComment')->subject('您在 ‘HongXunPan‘ 个人博客上的留言有了新的回复');
+        return $this->view('blog::mail.noticeCommentator')->subject('您在 ‘HongXunPan‘ 个人博客上的留言有了新的回复');
     }
 }
