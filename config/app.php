@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         HieuLe\Active\ActiveServiceProvider::class,
+        \Modules\Blog\Providers\BlogEventServiceProvider::class,
     ],
 
     /*
