@@ -58,6 +58,16 @@ class PostController extends Controller
         return view('blog::index.post', ['post' => $post, 'md' => $md, 'commentList' => $commentList]);
     }
 
+    public function about()
+    {
+        return $this->postBySlug('about');
+    }
+
+    public function websiteIntro()
+    {
+        return $this->postBySlug('website-intro');
+    }
+
     public function comment($id)
     {
         $input = request()->all();

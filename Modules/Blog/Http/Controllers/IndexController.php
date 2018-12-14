@@ -71,16 +71,6 @@ class IndexController extends Controller
         return view('blog::index.tagList', ['tagName' => $keyword, 'page' => 'Search', 'postList' => $postList]);
     }
 
-    public function about()
-    {
-        return $this->postBySlug('about');
-    }
-
-    public function websiteIntro()
-    {
-        return $this->postBySlug('website-intro');
-    }
-
     public function siteMap(SiteMap $siteMap)
     {
         $map = $siteMap->getSiteMap();

@@ -22,7 +22,7 @@ Route::group(['domain' => 'blog.kangxuanpeng.com', 'middleware' => 'web', 'names
     Route::get('sitemap.xml', 'IndexController@siteMap');
     Route::get('feed.xml', 'IndexController@feed');
 
-    Route::get('about', 'IndexController@about');
-    Route::get('website-intro', 'IndexController@websiteIntro');
+    Route::get('about', 'PostController@about');
+    Route::get('website-intro', 'PostController@websiteIntro');
 
 });
