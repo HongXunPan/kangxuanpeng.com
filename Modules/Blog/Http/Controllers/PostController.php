@@ -10,9 +10,13 @@ namespace Modules\Blog\Http\Controllers;
 
 
 use App\CommentBlog;
+use App\Events\Event;
 use App\PostBlog;
 use HyperDown\Parser;
 use Illuminate\Routing\Controller;
+use Modules\Blog\Events\CommentNoticeEvent;
+use Modules\Blog\Events\NoticeCommentatorEvent;
+use Modules\Blog\Mail\NoticeCommentatorMail;
 
 class PostController extends Controller
 {
@@ -60,6 +64,8 @@ class PostController extends Controller
         $input['post_id'] = $id;
         if (!$input['site']) unset($input['site']) ;
         $res = CommentBlog::create($input);
+        event(new NoticeCommentatorEvent($res));
+        event(new CommentNoticeEvent($res));
         return redirect($input['_'].'#li-comment-'.$res->comment_id);
     }
 }
