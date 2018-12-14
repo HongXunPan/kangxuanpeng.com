@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class BlogNoticeCommentator extends Mailable
+class BlogNoticeCommentatorMail extends Mailable
 {
     use Queueable, SerializesModels;
 
