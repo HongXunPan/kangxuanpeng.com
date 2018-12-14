@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace Modules\Blog\Mail;
 
 use App\CommentBlog;
 use App\PostBlog;
