@@ -28,7 +28,7 @@
                       placeholder="Type your comment here. Be cool. "
                       required=""></textarea>
             {{ csrf_field() }}
-            <button type="submit" class="submit" id="misubmit">SUBMIT</button>
+            <button type="submit" class="submit" @if($isDisableComment) disabled @endif id="misubmit">SUBMIT</button>
             <input type="hidden" name="_" value="{{ url()->current() }}">
             @if(Request()->replyTo)<input type="hidden" name="parent_id" value="{{ Request()->replyTo }}">@endif
         </form>

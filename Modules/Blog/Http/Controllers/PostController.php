@@ -40,7 +40,7 @@ class PostController extends Controller
         return $this->__renderPost(0, $slug);
     }
 
-    private function __renderPost($id = 0, $slug = '')
+    private function __renderPost($id = 0, $slug = '', $isDisableComment = false)
     {
         $commentPage = (int)preg_replace('/\bcommentPage-/', '', request()->commentPage);
         !is_int($commentPage) && $commentPage = 1;
@@ -55,7 +55,7 @@ class PostController extends Controller
         $commentList = $post->parentComments()->orderBy('created_at', 'desc')->paginate(6, ['*'], 'commentPage', $commentPage);
         $md = new Parser();
         $md->_commonWhiteList .= '|center';
-        return view('blog::index.post', ['post' => $post, 'md' => $md, 'commentList' => $commentList]);
+        return view('blog::index.post', ['post' => $post, 'md' => $md, 'commentList' => $commentList, 'isDisableComment' => $isDisableComment]);
     }
 
     public function about()
@@ -65,7 +65,7 @@ class PostController extends Controller
 
     public function websiteIntro()
     {
-        return $this->postBySlug('website-intro');
+        return $this->__renderPost(0,'website-intro', true);
     }
 
     public function comment($id)
