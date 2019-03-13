@@ -102,9 +102,14 @@
 
     function confirmForm() {
         document.getElementById('misubmit').disabled=true;
-        localStorage.setItem("nick_name", document.getElementById('author').value);
-        localStorage.setItem("email", document.getElementById('mail').value);
-        localStorage.setItem("site", document.getElementById('url').value);
+        var post_id = {{$post->post_id}};
+        var nick_name = document.getElementById('author').value;
+        var email = document.getElementById('mail').value;
+        var site = document.getElementById('url').value;
+        localStorage.setItem("nick_name", nick_name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("site", site);
+        gtag('event', 'comment', {'post_id':post_id ,'nick_name':nick_name, 'email':email, 'site':site});
         return true;
     }
 </script>
