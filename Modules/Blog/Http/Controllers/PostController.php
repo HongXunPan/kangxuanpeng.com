@@ -72,10 +72,23 @@ class PostController extends Controller
     {
         $input = request()->all();
         $input['post_id'] = $id;
-        if (!$input['site']) unset($input['site']) ;
+        if (!$input['site']) unset($input['site']);
+        if ($input['content'] != $this->filter_keyword($input['content'])) {
+            return redirect($input['_']);
+        }
         $res = CommentBlog::create($input);
         event(new NoticeCommentatorEvent($res));
         event(new CommentNoticeEvent($res));
         return redirect($input['_'].'#li-comment-'.$res->comment_id);
+    }
+
+    private function filter_keyword($content = '')
+    {
+        $blackList  = [
+            '<a href=',
+
+        ];
+        $replaceList = array_combine($blackList, array_fill(0, count($blackList),'*'));
+        return strtr($content, $replaceList);
     }
 }
