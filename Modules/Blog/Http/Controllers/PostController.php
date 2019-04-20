@@ -14,6 +14,7 @@ use App\Events\Event;
 use App\PostBlog;
 use HyperDown\Parser;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 use Modules\Blog\Events\CommentNoticeEvent;
 use Modules\Blog\Events\NoticeCommentatorEvent;
 use Modules\Blog\Mail\NoticeCommentatorMail;
@@ -74,11 +75,13 @@ class PostController extends Controller
         $input['post_id'] = $id;
         if (!$input['site']) unset($input['site']);
         if ($input['content'] != $this->filter_keyword($input['content'])) {
+            //记录日志
+//            Log::info('');
             return redirect($input['_']);
         }
         $res = CommentBlog::create($input);
-        event(new NoticeCommentatorEvent($res));
-        event(new CommentNoticeEvent($res));
+//        event(new NoticeCommentatorEvent($res));
+//        event(new CommentNoticeEvent($res));
         return redirect($input['_'].'#li-comment-'.$res->comment_id);
     }
 
