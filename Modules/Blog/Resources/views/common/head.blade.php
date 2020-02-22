@@ -13,6 +13,9 @@
 <!--<link rel="shortcut icon" href="./images/favicon.png">-->
 <!--移动端icon-->
 <!--<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">-->
+{{--icon--}}
+<link rel="icon" href="{{ asset("/icon/blog.ico") }}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ asset("/icon/blog.ico") }}" type="image/x-icon"/>
 
 <link href="{{ asset('/css/blog/xcode.min.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/blog/style.min.css') }}" rel="stylesheet">

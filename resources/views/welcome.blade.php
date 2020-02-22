@@ -10,6 +10,10 @@
     <!-- Fonts -->
     {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
 
+    {{--icon--}}
+    <link rel="icon" href="{{ asset("/icon/www.ico") }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset("/icon/www.ico") }}" type="image/x-icon"/>
+
     {{--css--}}
     <link rel="stylesheet" href="{{ asset("/css/base.css") }}" />
     <link rel="stylesheet" href="{{ asset("/css/index.css") }}" />
