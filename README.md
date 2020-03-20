@@ -200,7 +200,8 @@
  - 路由 优化
  - MIT License
  - markdown 渲染交给 github `curl 'https://api.github.com/repos/HongXunPan/markdown-to-htmE.md' -i -H "Accept: application/vnd.github.VERSION.html"`
- - post from github
+ - post from github ```webhook 触发自动更新脚本 根据commit id 获取该次commit 的变更文件 获取新的html```
+ 
  
 ## problem && fix
   
