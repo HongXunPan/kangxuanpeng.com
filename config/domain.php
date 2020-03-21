@@ -18,8 +18,8 @@
     */
 return [
 
-    'main' => env('domain-main', 'www.kangxuanpeng.com'),
+    'main' => env('DOMAIN_MAIN', 'www.kangxuanpeng.com'),
 
-    'blog' => env('domain-blog', 'blog.kangxuanpeng.com'),
+    'blog' => env('DOMAIN_BLOG', 'blog.kangxuanpeng.com'),
 
 ];
