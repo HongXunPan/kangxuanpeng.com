@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['domain' => config('domain.main')], function () {
+Route::group(['domain' => config('domain.main'), 'namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
