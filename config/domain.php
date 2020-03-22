@@ -22,4 +22,6 @@ return [
 
     'blog' => env('DOMAIN_BLOG', 'blog.kangxuanpeng.com'),
 
+    'me' => env('DOMAIN_ME', 'me.kangxuanpeng.com'),
+
 ];

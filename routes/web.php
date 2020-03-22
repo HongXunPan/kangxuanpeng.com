@@ -20,7 +20,7 @@ Route::group(['domain' => config('domain.main'), 'namespace' => 'App\Http\Contro
 Route::group(['domain' => config('domain.blog'), 'middleware' => 'web', 'namespace' => 'Modules\Blog\Http\Controllers'], function()
 {
 //    Route::get('/', 'BlogController@index');
-    Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index')->name('blog.index');
     Route::redirect('/index', '/', 301);
 
     Route::get('/tag/{tag_name}', 'IndexController@tagList');

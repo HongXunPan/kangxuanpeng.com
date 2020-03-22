@@ -32,8 +32,8 @@
         <div class="title m-b-md"><a onclick="">HongXunPan</a></div>
         <div class="links">
             {{--<a href="#">xxx</a>--}}
-            <a href="http://blog.kangxuanpeng.com">Blog</a>
-            <a href="http://me.kangxuanpeng.com">About Me</a>
+            <a href="{{ route('blog.index') }}">Blog</a>
+            <a href="//{{ config('domain.me') }}">About Me</a>
             <a href="#">Contact</a>
         </div>
     </div>
