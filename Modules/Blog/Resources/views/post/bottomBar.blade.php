@@ -19,15 +19,15 @@
         </div>
         <!--button nav-->
         <div class="bottom-bar-items right">
-            <!--to prev post-->
-            @if($post->prev_post)
-            <span class="bottom-bar-item"><a href="{{url('post/')}}/{{ $post->prev_post->post_id }}/{{ $post->prev_post->slug }}"
-                                             title="Prev Post">←</a></span>
+            <!--to newer post-->
+            @if($post->newer_post)
+            <span class="bottom-bar-item"><a href="{{url('post/')}}/{{ $post->newer_post->slug }}"
+                                             title="Newer Post">←</a></span>
             @endif
-            @if($post->next_post)
+            @if($post->older_post)
             <span class="bottom-bar-item"><a
-                        href="{{ url('post/') }}/{{ $post->next_post->post_id }}/{{ $post->next_post->slug }}"
-                        title="Next Post">→</a></span>
+                        href="{{ url('post/') }}/{{ $post->older_post->slug }}"
+                        title="Older Post">→</a></span>
             @endif
             <span class="bottom-bar-item"><a href="#footer">↓</a></span>
             <span class="bottom-bar-item"><a href="#">↑</a></span>

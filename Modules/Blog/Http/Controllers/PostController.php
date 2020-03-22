@@ -43,6 +43,16 @@ class PostController extends Controller
 
     private function __renderPost($id = 0, $slug = '', $isDisableComment = false)
     {
+        //disable get post by id
+        if ($id !== 0) {
+            $slug = PostBlog::where('post_id', '=', $id)->pluck('slug')->first();
+            if ($slug !== false) {
+                return redirect('/post/' . $slug);
+            } else {
+                return redirect('');
+            }
+        }
+
         $commentPage = (int)preg_replace('/\bcommentPage-/', '', request()->commentPage);
         !is_int($commentPage) && $commentPage = 1;
         $where = [];
