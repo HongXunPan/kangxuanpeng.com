@@ -78,18 +78,20 @@ class PostBlog extends Model
         return $this->hasMany('App\PostTagRelationBlog', 'post_id', 'post_id');
     }
 
-    public function getPrevPostAttribute()
+    public function getOlderPostAttribute()
     {
         return self::where('post_id', '<', $this->post_id)
             ->whereStatus(self::STATUS_PUBLISHED)
+            ->where('is_index_show', '=' , self::IS_INDEX_SHOW)
             ->orderBy('post_id', 'desc')
             ->first();
     }
 
-    public function getNextPostAttribute()
+    public function getNewerPostAttribute()
     {
         return self::where('post_id', '>', $this->post_id)
             ->whereStatus(self::STATUS_PUBLISHED)
+            ->where('is_index_show', '=' , self::IS_INDEX_SHOW)
             ->orderBy('post_id', 'asc')
             ->first();
     }

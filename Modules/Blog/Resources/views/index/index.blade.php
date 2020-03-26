@@ -40,7 +40,7 @@
                                 <div class="post-list-item-container">
                                     <div class="item-label">
                                         <div class="item-title">
-                                            <a href="{{ url('post/') }}/{{ $post->post_id }}/{{ $post->slug }}">
+                                            <a href="{{ url('post/') }}/{{ $post->slug }}">
                                                 {{ $post->post_name }}
                                             </a>
                                         </div>

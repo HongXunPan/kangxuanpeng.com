@@ -179,6 +179,8 @@
  - 获取上一篇下一篇文章
  - share.. ```fb,tw,weibo,qrcode```
  - comment
+ - www.cloudflare.com cdn
+ - laravel ssl https
 
 
 ## wait-use || todo
@@ -186,6 +188,19 @@
  - laravel edit markdown-live view
  - mail send-mail listener - queue reply-mail-notice
  - notice:no-reply@kangxuanpeng.com inform@kangxuanpeng.com
+ - 宝塔 运维
+ - 评论添加验证码
+ - laravel 版本升级
+ - composer.lock
+ - Carbon 1 is deprecated, see how to migrate to Carbon 2.
+ - laravel 日志拆分 && viewer
+ - 废除 id 路由
+ - nginx 日志分析
+ - 服务器 运维 监控
+ - 路由 优化
+ - MIT License
+ - markdown 渲染交给 github `curl 'https://api.github.com/repos/HongXunPan/markdown-to-htmE.md' -i -H "Accept: application/vnd.github.VERSION.html"`
+ - post from github ```webhook 触发自动更新脚本 根据commit id 获取该次commit 的变更文件 获取新的html```
  
  
 ## problem && fix
