@@ -47,7 +47,7 @@ class PostController extends Controller
         if ($id !== 0) {
             $slug = PostBlog::where('post_id', '=', $id)->pluck('slug')->first();
             if ($slug !== false) {
-                return redirect('/post/' . $slug);
+                return redirect('/post/' . $slug, 301);
             } else {
                 return redirect('');
             }
