@@ -120,6 +120,7 @@ class PostBlogController extends Controller
     {
         return Admin::grid(PostBlog::class, function (Grid $grid) {
             /** @var $grid PostBlog*/
+            $grid->model()->orderBy('create_at', 'desc');
 
             $grid->post_id('ID')->sortable();
             $grid->post_name()->editable()->setAttributes(['style' => 'max-width:200px;overflow:hidden;text-overflow:ellipsis;']);
