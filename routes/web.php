@@ -12,9 +12,7 @@
 */
 
 Route::group(['domain' => config('domain.main'), 'namespace' => 'App\Http\Controllers'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', 'IndexController@index');
 });
 
 Route::group(['domain' => config('domain.blog'), 'middleware' => 'web', 'namespace' => 'Modules\Blog\Http\Controllers'], function()
