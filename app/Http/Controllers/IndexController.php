@@ -9,7 +9,6 @@ class IndexController extends Controller
     //
     public function index()
     {
-        dd(1);
         return view('welcome');
     }
 }
