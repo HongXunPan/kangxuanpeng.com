@@ -81,6 +81,7 @@ class PostController extends Controller
 
     public function comment($id)
     {
+        exit();
         $input = request()->all();
         $input['post_id'] = $id;
         if (!$input['site']) unset($input['site']);
