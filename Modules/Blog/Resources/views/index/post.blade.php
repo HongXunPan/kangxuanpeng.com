@@ -48,7 +48,7 @@
     @include('blog::post.bottomBar')
 
     {{--//TODO comment List--}}
-    @include('blog::post.comment-modal')
+{{--    @include('blog::post.comment-modal')--}}
 
     <div id="directory-content" class="directory-content">
         <div id="directory"></div>
